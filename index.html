@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- #5 SEO & Metadata -->
+  <!-- SEO & Metadata -->
   <title>Ryan R — Game Developer & Programmer</title>
   <meta name="description" content="Portfolio of Ryan R — Unity developer and programmer. Projects include a card-based strategy game, Name Recall Challenge (EEG), a farm sim, and an unwinnable tic-tac-toe. Contact: ryanrookis@gmail.com." />
   <meta name="robots" content="index, follow" />
@@ -75,15 +75,14 @@
       padding: 2rem 1rem;
     }
 
-    /* #2 Responsive embeds (16:9 aspect, scales on mobile) */
+    /* Responsive embeds (16:9 aspect, scales on mobile) */
     .embed {
       position: relative;
       width: 100%;
       max-width: 800px;
       margin: 0.75rem 0 0.5rem 0;
-      /* 16:9 ratio */
       aspect-ratio: 16 / 9;
-      background: #000; /* avoids white flash before load */
+      background: #000;
       overflow: hidden;
       border-radius: 8px;
     }
@@ -95,6 +94,11 @@
       height: 100%;
       border: 0;
       display: block;
+    }
+
+    ul.clean {
+      padding-left: 1.2rem;
+      margin-top: 0.25rem;
     }
 
     /* Small screens tweaks */
@@ -113,7 +117,7 @@
 
   <main>
     <section>
-      <h2>About me</h2>
+      <h2>About Me</h2>
       <p>
         I’m a naturally tech-minded person who loves creating, connecting, and exploring. 
         I’m passionate about making the kinds of games I grew up playing, and I’m driven 
@@ -122,28 +126,28 @@
       <p>
         Outside of development, I’m deeply spiritual and curious about the world — I want to 
         travel, learn from different cultures, and meet people from all walks of life. 
-        My dream is to create meaningful projects, travel all over the world, and live fully in the purpose 
+        My dream is to create meaningful projects, to be able to travel, and live fully in the purpose 
         I was made for.
       </p>
-	        <h3>Some of the games I love</h3>
-      <p>
-       Halo,
-	   Dishonered,
-	   Left 4 Dead,
-	   Hollow Knight,
-	   Age of Mythology,
-	   Bioshock Infinite,
-	   Mass Efect
-      </p>
+      <h3>Some of the games I love</h3>
+      <ul class="clean">
+        <li>Halo</li>
+        <li>Dishonored</li>
+        <li>Left 4 Dead</li>
+        <li>Hollow Knight</li>
+        <li>Age of Mythology</li>
+        <li>BioShock Infinite</li>
+        <li>Mass Effect</li>
+      </ul>
     </section>
 
     <h2>Projects</h2>
-    <h2>All projects were completly done by me</h2>
+    <h3 style="margin-top:-0.5rem;color:#666;font-weight:500;">All projects were completely done by me</h3>
 
     <div class="project">
       <h3>Card-Based Strategy Game</h3>
       <p>A Slay-the-Spire-style deckbuilding game focused on clearing waves of enemies. Built in Unity using a turn manager and scriptable card system.</p>
-      <p>Features hand-drawn art</p>
+      <p>Features hand-drawn art.</p>
       <div class="embed">
         <iframe
           src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88"
@@ -151,14 +155,14 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p><a href="https://github.com/Uncrustable125/CardBattler" target="_blank">View on GitHub</a></p>
+      <p><a href="https://github.com/Uncrustable125/CardBattler" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
     </div>
 
     <div class="project">
       <h3>Name Recall Challenge</h3>
       <p>A memory-based game where users match faces and names. Built for cognitive research-style gameplay using Unity.</p>
-      <p>Played with an EEG monitor</p>
-      <p>This is a professional project for the NTL group's NeuroCoach</p>
+      <p>Played with an EEG monitor.</p>
+      <p>This is a professional project for the NTL group's NeuroCoach.</p>
       <div class="embed">
         <iframe
           src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k"
@@ -166,13 +170,13 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p><a href="https://ntlgroupinc.com/neurocoach/" target="_blank">NTL.NeuroCoach HomePage</a></p>
-      <p>Can send project on request</p>
+      <p><a href="https://ntlgroupinc.com/neurocoach/" target="_blank" rel="noopener noreferrer">NTL NeuroCoach Homepage</a></p>
+      <p>Can send project on request.</p>
     </div>
 
     <div class="project">
       <h3>Farm Game</h3>
-      <p>A farm game similiar to Stardew Valley or Harvest Moon.</p>
+      <p>A farm game similar to Stardew Valley or Harvest Moon.</p>
       <p>Still a very basic game, but shows off some different systems.</p>
       <p>This was my first real project in Unity and how I taught myself.</p>
       <p>Most of this art is not my own, but some is.</p>
@@ -183,12 +187,12 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p><a href="https://github.com/Uncrustable125/Farm-Game" target="_blank">View on GitHub</a></p>
+      <p><a href="https://github.com/Uncrustable125/Farm-Game" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
     </div>
 
     <div class="project">
       <h3>Unwinnable Tic-Tac-Toe</h3>
-      <p>You cant win.</p>
+      <p>You can’t win.</p>
       <div class="embed">
         <iframe
           src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI"
@@ -196,29 +200,27 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p><a href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank">View on GitHub</a></p>
+      <p><a href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
     </div>
 
-<section>
-  <h2>Other Skills</h2>
-  <p>
-    In addition to my game development work, I have a broad skill set that allows me 
-    to tackle a variety of projects from software to hardware to life skills.
-  </p>
-  <ul>
-    <li><strong>Programming:</strong> C, C#, C++, Python</li>
-    <li><strong>Engineering Tools:</strong> SolidWorks, Unity</li>
-    <li><strong>Hardware Experience:</strong> Microcontrollers, soldering, 3D printing, laser cutting</li>    
-	<li><strong>Life Skills:</strong> Addiction Recovery and Life Coach for 10 years</li>
-
-	
-  </ul>
-</section>
+    <section>
+      <h2>Other Skills</h2>
+      <p>
+        In addition to my game development work, I have a broad skill set that allows me 
+        to tackle a variety of projects from software to hardware to life skills.
+      </p>
+      <ul class="clean">
+        <li><strong>Programming:</strong> C, C#, C++, Python</li>
+        <li><strong>Engineering Tools:</strong> SolidWorks, Unity</li>
+        <li><strong>Hardware Experience:</strong> Microcontrollers, soldering, 3D printing, laser cutting</li>
+        <li><strong>Life Skills:</strong> Recovery & life coach — 10 years</li>
+      </ul>
+    </section>
 
     <section>
       <h2>Contact</h2>
       <p>Email: <a href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
-      <p>GitHub: <a href="https://github.com/Uncrustable125" target="_blank">Uncrustable125</a></p>
+      <p>GitHub: <a href="https://github.com/Uncrustable125" target="_blank" rel="noopener noreferrer">Uncrustable125</a></p>
     </section>
   </main>
 
