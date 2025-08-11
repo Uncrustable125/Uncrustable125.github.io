@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ryan R — Unity Developer</title>
-  <meta name="description" content="Unity developer portfolio: card battler, Name Recall Challenge (EEG), farm sim, unwinnable tic‑tac‑toe." />
+  <title>Ryan R — Game Dev & Programmer</title>
+  <meta name="description" content="Portfolio of Ryan R — Unity developer and programmer. Projects include a card-based strategy game, Name Recall Challenge (EEG), a farm sim, and an unwinnable tic-tac-toe. Contact: ryanrookis@gmail.com." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Ryan R — Game Developer & Programmer" />
+  <meta property="og:description" content="Unity projects: card battler, Name Recall Challenge (EEG), farm game, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://uncrustable125.github.io/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Ryan R — Game Developer & Programmer" />
+  <meta name="twitter:description" content="Unity projects: card battler, Name Recall Challenge (EEG), farm game, and more." />
+  <link rel="canonical" href="https://uncrustable125.github.io/" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -52,18 +62,13 @@
       transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
     }
     .btn:hover{transform:translateY(-1px); filter:saturate(1.1)}
-    .btn.secondary{
-      background:linear-gradient(90deg,var(--accent),var(--primary-2)); color:#140b14;
-    }
+    .btn.secondary{background:linear-gradient(90deg,var(--accent),var(--primary-2)); color:#140b14}
+
     /* ---------- HEADER ---------- */
-    header{
-      position:relative; overflow:hidden; border-radius: calc(var(--radius) + 6px);
+    header{position:relative; overflow:hidden; border-radius: calc(var(--radius) + 6px);
       background:linear-gradient(135deg, rgba(110,231,249,.18), rgba(167,139,250,.18) 40%, rgba(244,114,182,.18) 80%);
-      padding:38px; box-shadow:0 10px 40px rgba(0,0,0,.25);
-    }
-    .hero{
-      display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center
-    }
+      padding:38px; box-shadow:0 10px 40px rgba(0,0,0,.25)}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
     .title{font-size:clamp(28px,4vw,44px);line-height:1.05;margin:0 0 10px;font-weight:800}
     .subtitle{margin:0 0 16px;color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
@@ -75,7 +80,6 @@
     /* ---------- SECTIONS ---------- */
     section{margin-top:34px}
     .sec-title{font-size:22px;margin:0 0 14px;letter-spacing:.2px}
-    /* Cards */
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .card{grid-column:span 6; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border:1px solid rgba(255,255,255,.16); border-radius:var(--radius); padding:18px; position:relative; overflow:hidden;
@@ -84,7 +88,7 @@
     .card h3{margin:0 0 8px}
     .chipbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
     .chip{font-size:12px;padding:.3rem .55rem;border-radius:999px;background:rgba(124,58,237,.18); border:1px solid rgba(124,58,237,.35)}
-    .card .cta{margin-top:14px; display:flex;gap:10px}
+    .card .cta{margin-top:14px; display:flex;gap:10px;flex-wrap:wrap}
     .thumb{height:140px;border-radius:14px;background:linear-gradient(135deg, rgba(110,231,249,.22), rgba(167,139,250,.22)),
       repeating-linear-gradient(45deg, rgba(255,255,255,.1) 0 10px, rgba(0,0,0,.04) 10px 20px); border:1px dashed rgba(255,255,255,.25);
       display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:"JetBrains Mono", monospace;margin-bottom:12px}
@@ -97,6 +101,10 @@
     .link{color:var(--primary)}
     .link:hover{filter:brightness(1.2)}
     .split{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Responsive embeds (16:9 aspect) */
+    .embed{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;margin:10px 0 6px}
+    .embed iframe,.embed video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
   </style>
 </head>
 <body>
@@ -104,13 +112,13 @@
     <header>
       <div class="hero">
         <div>
-          <h1 class="title">Ryan R — <span style="background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Unity Developer</span></h1>
-          <p class="subtitle">Gameplay & tools programmer. I build clean systems, smooth feel, and content pipelines. Projects below include a card battler, EEG name‑recall experiment, a farm sim, and an unwinnable tic‑tac‑toe.</p>
+          <h1 class="title">Ryan R — <span style="background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent">Game Developer &amp; Programmer</span></h1>
+          <p class="subtitle">I’m a tech‑minded builder who loves creating systems and feel. I make the kinds of games I grew up playing and aim to build experiences that bring people together.</p>
           <div class="badges">
             <span class="badge">Unity / C#</span>
             <span class="badge">Gameplay</span>
             <span class="badge">VR / 2D / 3D</span>
-            <span class="badge">Tools & UI</span>
+            <span class="badge">Tools &amp; UI</span>
           </div>
           <div class="split">
             <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
@@ -125,71 +133,88 @@
     </header>
 
     <section>
-      <h2 class="sec-title">Selected Projects</h2>
+      <h2 class="sec-title">About Me</h2>
+      <p>I’m a naturally tech‑minded person who loves creating, connecting, and exploring. I’m passionate about making the kinds of games I grew up playing, and I’m driven to build experiences that inspire and bring people together.</p>
+      <p>Outside of development, I’m deeply spiritual and curious about the world — I want to travel, learn from different cultures, and meet people from all walks of life. My dream is to create meaningful projects, to be able to travel, and live fully in the purpose I was made for.</p>
+      <h3 style="margin:8px 0 6px">Some of the games I love</h3>
+      <ul class="clean">
+        <li>Halo</li>
+        <li>Dishonored</li>
+        <li>Left 4 Dead</li>
+        <li>Hollow Knight</li>
+        <li>Age of Mythology</li>
+        <li>BioShock Infinite</li>
+        <li>Mass Effect</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="sec-title">Projects</h2>
+      <p style="margin-top:-6px;color:var(--muted)">All projects were completely done by me.</p>
       <div class="grid">
-        <!-- Card Battler -->
+        <!-- Card-Based Strategy Game -->
         <article class="card">
-          <div class="thumb">Card Battler — Combat GIF</div>
-          <h3>Null — Card‑Battler Prototype</h3>
-          <p>Slay‑the‑Spire‑style systems with a twist: <em>nullify</em> buffs/debuffs and enemies. Clean turn engine, event‑driven input, and modular card effects.</p>
-          <div class="chipbar">
-            <span class="chip">C# events</span><span class="chip">ScriptableObjects</span><span class="chip">State machine</span>
+          <h3>Card-Based Strategy Game</h3>
+          <p>A Slay‑the‑Spire‑style deckbuilder focused on clearing waves of enemies. Built in Unity using a turn manager and ScriptableObject card system. Features hand‑drawn art.</p>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88" allow="encrypted-media" allowfullscreen></iframe>
           </div>
           <div class="cta">
-            <a class="btn" href="#">Play/WebGL</a>
-            <a class="btn secondary" href="https://github.com/uncrustable125" target="_blank" rel="noreferrer">Source</a>
+            <a class="btn secondary" href="https://github.com/Uncrustable125/CardBattler" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
         </article>
-        <!-- EEG Name Recall -->
+        <!-- Name Recall Challenge -->
         <article class="card">
-          <div class="thumb">Name Recall — Task Demo</div>
-          <h3>Name Recall Challenge (EEG)</h3>
-          <p>Custom face–name stimulus app with encoding/response phases and a <strong>Simon Says</strong> distractor. Built from scratch; clean grid UI and timing control.</p>
-          <div class="chipbar">
-            <span class="chip">UI Toolkit</span><span class="chip">Data pipelines</span><span class="chip">Async flows</span>
+          <h3>Name Recall Challenge</h3>
+          <p>A memory‑based game where users match faces and names. Played with an EEG monitor. Professional project for the NTL group’s NeuroCoach.</p>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k" allow="encrypted-media" allowfullscreen></iframe>
           </div>
           <div class="cta">
-            <a class="btn" href="#">Video</a>
-            <a class="btn secondary" href="#">Write‑up</a>
+            <a class="btn secondary" href="https://ntlgroupinc.com/neurocoach/" target="_blank" rel="noreferrer">NTL NeuroCoach Homepage</a>
+            <span style="align-self:center;color:var(--muted);font-size:12px">Project available on request</span>
           </div>
         </article>
-        <!-- Farm Sim -->
+        <!-- Farm Game -->
         <article class="card">
-          <div class="thumb">Farm Sim — Day/Night Loop</div>
-          <h3>Farm Game (Work‑in‑Progress)</h3>
-          <p>Sticker‑style art direction, inventory hot‑swap, and DOTween polish. Event‑based input, scene persistence, and simple crop lifecycle.</p>
-          <div class="chipbar">
-            <span class="chip">DOTween</span><span class="chip">Save/Load</span><span class="chip">2D</span>
+          <h3>Farm Game</h3>
+          <p>A farm game similar to Stardew Valley or Harvest Moon. Shows different systems (inventory hot‑swap, crop lifecycle, scene persistence). First real Unity project; some art original.</p>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allow="encrypted-media" allowfullscreen></iframe>
           </div>
           <div class="cta">
-            <a class="btn" href="#">Play/WebGL</a>
-            <a class="btn secondary" href="#">Source</a>
+            <a class="btn secondary" href="https://github.com/Uncrustable125/Farm-Game" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
         </article>
         <!-- Tic‑Tac‑Toe -->
         <article class="card">
-          <div class="thumb">AI Tactics — No Win</div>
           <h3>Unwinnable Tic‑Tac‑Toe</h3>
-          <p>Rule‑based AI that never loses. Emphasis on clean architecture, input buffering, and debug overlays.</p>
-          <div class="chipbar">
-            <span class="chip">AI</span><span class="chip">Unit tests</span><span class="chip">Input System</span>
+          <p>You can’t win.</p>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></iframe>
           </div>
           <div class="cta">
-            <a class="btn" href="#">Play</a>
-            <a class="btn secondary" href="#">Source</a>
+            <a class="btn secondary" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank" rel="noreferrer">View on GitHub</a>
           </div>
         </article>
       </div>
     </section>
 
     <section>
-      <h2 class="sec-title">About</h2>
-      <p>I’m a Unity developer with C# and tools focus. I like building <em>reusable</em> systems that help ship games faster: input/event layers, data‑driven content, and little touches that make things feel great.</p>
+      <h2 class="sec-title">Other Skills</h2>
+      <p>Beyond game dev, I can tackle software, hardware, and practical projects.</p>
+      <ul class="clean">
+        <li><strong>Programming:</strong> C, C#, C++, Python</li>
+        <li><strong>Engineering Tools:</strong> SolidWorks, Unity</li>
+        <li><strong>Hardware Experience:</strong> Microcontrollers, soldering, 3D printing, laser cutting</li>
+        <li><strong>Life Skills:</strong> Recovery &amp; life coach — 10 years</li>
+      </ul>
     </section>
 
     <section>
       <h2 class="sec-title">Contact</h2>
-      <p>Best way to reach me is <a class="link" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a>. I’m open to remote or on‑site roles.</p>
+      <p>Email: <a class="link" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
+      <p>GitHub: <a class="link" href="https://github.com/Uncrustable125" target="_blank" rel="noreferrer">Uncrustable125</a></p>
     </section>
 
     <footer>© <span id="y"></span> Ryan R • Built with vanilla HTML/CSS • Light/dark aware</footer>
