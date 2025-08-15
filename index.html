@@ -9,6 +9,9 @@
   <meta name="color-scheme" content="light dark" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
+    /* ---------------------------------------------------------
+       THEME SYSTEM + BACKGROUND PATTERN
+    --------------------------------------------------------- */
     :root{
       --bg:#f7f9fc;
       --bg-pattern: radial-gradient(circle at 20% 20%, rgba(37,99,235,0.08), transparent 40%), radial-gradient(circle at 80% 30%, rgba(96,165,250,0.08), transparent 40%);
@@ -43,17 +46,211 @@
       --bg:#0b1220; --bg-pattern: radial-gradient(circle at 20% 20%, rgba(96,165,250,0.08), transparent 40%), radial-gradient(circle at 80% 30%, rgba(37,99,235,0.08), transparent 40%);
     }
 
+    /* ---------------------------------------------------------
+       BASE STYLES
+    --------------------------------------------------------- */
+    *{box-sizing:border-box}
     body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background: var(--bg), var(--bg-pattern);
-      color:var(--text);
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; 
+      background: var(--bg), var(--bg-pattern); color:var(--text);
       line-height:1.6;
       transition: background-color .25s ease, color .25s ease, background .25s ease;
     }
-    /* rest of styles remain unchanged */
+    .container{max-width:1000px;margin:0 auto;padding:24px}
+    a{color:inherit;text-decoration:none}
+    .btn{
+      display:inline-block; background:var(--accent); color:var(--accent-contrast); padding:10px 16px; border-radius:var(--radius);
+      font-weight:600; border:1px solid transparent; box-shadow:var(--shadow); transition: transform .15s ease, opacity .2s ease, filter .2s ease;
+    }
+    .btn:hover{transform:translateY(-1px); filter:saturate(1.05)}
+    .btn.secondary{background:transparent; color:var(--text); border-color:var(--border)}
+    .btn:focus-visible{outline:none; box-shadow:var(--focus)}
+
+    header{ text-align:center; padding:56px 16px 40px }
+    header h1{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); margin:0 0 10px }
+    header p{ max-width:720px; margin:0 auto 20px; color:var(--muted) }
+
+    .top-actions{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:14px }
+
+    .badges{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:16px 0 }
+    .badge{ background:transparent; border:1px solid var(--border); color:var(--muted); padding:6px 10px; border-radius:999px; font-size:.85rem }
+
+    h2{ font-size:1.4rem; margin:24px 0 12px }
+
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px }
+    .card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; display:flex; flex-direction:column }
+    .card h3{ margin:0 0 6px }
+    .card p{ color:var(--muted); margin:0 0 8px; flex-grow:1 }
+
+    .embed{ position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; margin:8px 0 10px; background:#000 }
+    .embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0 }
+
+    footer{ text-align:center; font-size:.9rem; color:var(--muted); margin:36px 0 10px }
+
+    /* Theme Toggle Control */
+    .theme-toggle{ display:inline-flex; align-items:center; gap:8px; background:var(--card); border:1px solid var(--border); border-radius:999px; padding:6px; box-shadow:var(--shadow) }
+    .theme-toggle button{
+      background:transparent; border:0; padding:8px 10px; border-radius:999px; cursor:pointer; color:var(--muted); font-weight:600
+    }
+    .theme-toggle button[aria-pressed="true"]{ background:var(--accent); color:var(--accent-contrast) }
+    .visually-hidden{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
   </style>
+  <script>
+    /* Apply saved theme early to avoid FOUC */
+    (function(){
+      try{
+        const saved = localStorage.getItem('theme-mode');
+        if(saved === 'light' || saved === 'dark'){
+          document.documentElement.setAttribute('data-theme', saved);
+        }else{
+          document.documentElement.setAttribute('data-theme', 'auto');
+        }
+      }catch(e){}
+    })();
+  </script>
 </head>
 <body>
-  <!-- Content remains unchanged -->
+  <div class="container">
+    <header>
+      <h1>Ryan R — Game Developer & Programmer</h1>
+      <p>Logical minded person who loves building, connecting, and exploring. I’m passionate about making the kinds of games I grew up playing. I specialize in Unity, but have skills in many other things, tech related and beyond.</p>
+
+      <div class="badges">
+        <span class="badge">Unity / C#</span>
+        <span class="badge">Gameplay</span>
+        <span class="badge">VR / 2D / 3D</span>
+        <span class="badge">Tools &amp; UI</span>
+      </div>
+
+      <div class="top-actions">
+        <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
+        <a class="btn secondary" href="https://github.com/uncrustable125" target="_blank" rel="noreferrer">GitHub</a>
+
+        <!-- Accessible 3-state theme control: Auto / Light / Dark -->
+        <div class="theme-toggle" role="group" aria-label="Theme toggle">
+          <span class="visually-hidden" id="themeLabel">Theme</span>
+          <button type="button" id="themeAuto" aria-pressed="true" aria-describedby="themeLabel">Auto</button>
+          <button type="button" id="themeLight" aria-pressed="false" aria-describedby="themeLabel">Light</button>
+          <button type="button" id="themeDark" aria-pressed="false" aria-describedby="themeLabel">Dark</button>
+        </div>
+      </div>
+    </header>
+
+    <h2>Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Card-Based Strategy Game</h3>
+        <p>A Slay‑the‑Spire‑style deckbuilder focused on clearing waves of enemies. Built in Unity using a turn manager and ScriptableObject card system. Features hand‑drawn art.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/CardBattler" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>Name Recall Challenge</h3>
+        <p>A memory‑based game where users match faces and names. Played with an EEG monitor. Professional project for the NTL group’s NeuroCoach.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="top-actions" style="justify-content:flex-start">
+          <a class="btn" href="https://ntlgroupinc.com/neurocoach/" target="_blank" rel="noreferrer">NTL NeuroCoach Homepage</a>
+          <span style="align-self:center;color:var(--muted);font-size:12px">Project available on request</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Farm Game</h3>
+        <p>A farm game similar to Stardew Valley or Harvest Moon. Shows different systems (inventory hot‑swap, crop lifecycle, scene persistence). First real Unity project; some art original.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/Farm-Game" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>Unwinnable Tic‑Tac‑Toe</h3>
+        <p>You can’t win.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
+    </div>
+
+    <h2>About Me</h2>
+    <p>Outside of development, I’m deeply spiritual and curious about the world — I want to travel, learn from different cultures, and meet people from all walks of life.</p>
+    <h3 style="margin:8px 0 6px">Some of the games I love</h3>
+    <ul>
+      <li>Halo</li>
+      <li>Dishonored</li>
+      <li>Left 4 Dead</li>
+      <li>Hollow Knight</li>
+      <li>Slay the Spire</li>
+      <li>BioShock Infinite</li>
+      <li>Mass Effect</li>
+    </ul>
+
+    <h2>Other Skills</h2>
+    <p>Beyond game dev, I can tackle software, hardware, and practical projects.</p>
+    <ul>
+      <li><strong>Programming:</strong> C, C#, C++, Python</li>
+      <li><strong>Engineering Tools:</strong> SolidWorks, Unity</li>
+      <li><strong>Hardware Experience:</strong> Microcontrollers, soldering, 3D printing, laser cutting</li>
+      <li><strong>Life Skills:</strong> Recovery &amp; life coach — 10 years</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>Email: <a class="btn secondary" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
+    <p>GitHub: <a class="btn secondary" href="https://github.com/Uncrustable125" target="_blank" rel="noreferrer">Uncrustable125</a></p>
+
+    <footer>© <span id="y"></span> Ryan R • Switchable Light/Dark • Vanilla HTML/CSS</footer>
+  </div>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const btnAuto = document.getElementById('themeAuto');
+      const btnLight = document.getElementById('themeLight');
+      const btnDark = document.getElementById('themeDark');
+
+      function setPressed(which){
+        btnAuto.setAttribute('aria-pressed', String(which==='auto'));
+        btnLight.setAttribute('aria-pressed', String(which==='light'));
+        btnDark.setAttribute('aria-pressed',  String(which==='dark'));
+      }
+
+      function apply(mode){
+        if(mode==='light' || mode==='dark'){
+          root.setAttribute('data-theme', mode);
+          localStorage.setItem('theme-mode', mode);
+        }else{
+          root.setAttribute('data-theme', 'auto');
+          localStorage.removeItem('theme-mode');
+        }
+        setPressed(mode||'auto');
+      }
+
+      // init from storage or auto
+      try{
+        const saved = localStorage.getItem('theme-mode');
+        apply(saved || 'auto');
+      }catch(e){ apply('auto'); }
+
+      btnAuto.addEventListener('click', ()=>apply('auto'));
+      btnLight.addEventListener('click', ()=>apply('light'));
+      btnDark.addEventListener('click', ()=>apply('dark'));
+
+      // react to system changes when in auto
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      media.addEventListener('change', ()=>{
+        if(!localStorage.getItem('theme-mode')){
+          root.setAttribute('data-theme', 'auto');
+        }
+      });
+
+      document.getElementById('y').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
