@@ -143,10 +143,6 @@
       </div>
     </header>
 
-    <!-- rest unchanged -->
-    <footer>© <span id="y"></span> Ryan R • Switchable Light/Dark • Vanilla HTML/CSS</footer>
-  </div>
-
     <h2>Projects</h2>
     <div class="grid">
       <article class="card">
@@ -223,14 +219,12 @@
       const root = document.documentElement;
       const btnAuto = document.getElementById('themeAuto');
       const btnLight = document.getElementById('themeLight');
-      const btnDark = document.getElementById('themeDark');
-
+      const btnDark  = document.getElementById('themeDark');
       function setPressed(which){
         btnAuto.setAttribute('aria-pressed', String(which==='auto'));
         btnLight.setAttribute('aria-pressed', String(which==='light'));
-        btnDark.setAttribute('aria-pressed',  String(which==='dark'));
+        btnDark .setAttribute('aria-pressed', String(which==='dark'));
       }
-
       function apply(mode){
         if(mode==='light' || mode==='dark'){
           root.setAttribute('data-theme', mode);
@@ -241,26 +235,12 @@
         }
         setPressed(mode||'auto');
       }
-
-      // init from storage or auto
-      try{
-        const saved = localStorage.getItem('theme-mode');
-        apply(saved || 'auto');
-      }catch(e){ apply('auto'); }
-
+      try{ apply(localStorage.getItem('theme-mode') || 'auto'); }catch(e){ apply('auto'); }
       btnAuto.addEventListener('click', ()=>apply('auto'));
       btnLight.addEventListener('click', ()=>apply('light'));
-      btnDark.addEventListener('click', ()=>apply('dark'));
-
-      // react to system changes when in auto
+      btnDark .addEventListener('click', ()=>apply('dark'));
       const media = window.matchMedia('(prefers-color-scheme: dark)');
-      media.addEventListener('change', ()=>{
-        if(!localStorage.getItem('theme-mode')){
-          // in auto mode, just trigger reflow so CSS @media picks up
-          root.setAttribute('data-theme', 'auto');
-        }
-      });
-
+      media.addEventListener('change', ()=>{ if(!localStorage.getItem('theme-mode')) root.setAttribute('data-theme', 'auto'); });
       document.getElementById('y').textContent = new Date().getFullYear();
     })();
   </script>
