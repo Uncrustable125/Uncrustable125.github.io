@@ -20,18 +20,26 @@
     }
 
     *{box-sizing:border-box}
-body {
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text);
-  line-height:1.6;
+    body {
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      line-height:1.6;
 
-  background: linear-gradient(135deg, #3a7d7d 0%, #eaf6f6 100%);
+      background: linear-gradient(135deg, #3a7d7d 0%, #eaf6f6 100%);
+      min-height: 100vh;
+      transition: background-color .25s ease, color .25s ease;
+    }
 
-  
-  min-height: 100vh;
-  transition: background-color .25s ease, color .25s ease;
-}
+    /* NEW: content box wrapper */
+    .content-box {
+      background: #ffffffee; /* white with slight transparency */
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12);
+      margin: 40px auto;
+      max-width: 1100px;
+      padding: 20px 0;
+    }
 
     .container{max-width:1000px; margin:0 auto; padding: clamp(20px, 3vw, 28px)}
     a{color:inherit; text-decoration:none}
@@ -84,95 +92,97 @@ body {
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="reveal">
-      <h1>Ryan R</h1>
-      <p>Game Developer & Full Stack Programmer</p>
-      <p>I've been honing my programming skills for 7+ years in and out of college. I'm a fast learner and very capable person</p>
-      <p>All my Unity skills I taught myself and can teach myself any languages or skills</p>
+  <div class="content-box">
+    <div class="container">
+      <header class="reveal">
+        <h1>Ryan R</h1>
+        <p>Game Developer & Full Stack Programmer</p>
+        <p>I've been honing my programming skills for 7+ years in and out of college. I'm a fast learner and very capable person</p>
+        <p>All my Unity skills I taught myself and can teach myself any languages or skills</p>
 
-      <div class="badges">
-        <span class="badge">Unity / C#</span>
-        <span class="badge">Gameplay</span>
-        <span class="badge">VR / 2D / 3D</span>
-        <span class="badge">Tools &amp; UI</span>
+        <div class="badges">
+          <span class="badge">Unity / C#</span>
+          <span class="badge">Gameplay</span>
+          <span class="badge">VR / 2D / 3D</span>
+          <span class="badge">Tools &amp; UI</span>
+        </div>
+
+        <div class="top-actions">
+          <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
+          <a class="btn secondary" href="https://github.com/uncrustable125" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </header>
+
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card reveal">
+          <h3>Card-Based Strategy Game</h3>
+          <p>A Slay-the-Spire-style deckbuilder focused on clearing waves of enemies and building a deck. Features some custom art.</p>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+          <a class="btn" href="https://github.com/Uncrustable125/CardBattler" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
+
+        <article class="card reveal">
+          <h3>Name Recall Challenge</h3>
+          <p>A memory-based game where users match faces and names. Played with an EEG monitor. Professional project for the NTL group’s NeuroCoach.</p>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+          <div class="top-actions" style="justify-content:flex-start">
+            <a class="btn" href="https://ntlgroupinc.com/neurocoach/" target="_blank" rel="noreferrer">NTL NeuroCoach Homepage</a>
+            <span style="align-self:center;color:#6b7280;font-size:12px">Project available on request</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <h3>Farm Game</h3>
+          <p>A farm game similar to Stardew Valley or Harvest Moon. Shows off a tile-based farm/crop system and a dialog system. First real Unity project; some art original.</p>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+          <a class="btn" href="https://github.com/Uncrustable125/Farm-Game" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
+
+        <article class="card reveal">
+          <h3>Unwinnable Tic-Tac-Toe</h3>
+          <p>Quick project I made for fun. You can’t win.</p>
+          <div class="embed">
+            <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+          <a class="btn" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank" rel="noreferrer">View on GitHub</a>
+        </article>
       </div>
 
-      <div class="top-actions">
-        <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
-        <a class="btn secondary" href="https://github.com/uncrustable125" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-    </header>
+      <h2>About Me</h2>
+      <p>Outside of development, I’m a spiritual and curious person — I want to grow with others, learn from different cultures, and meet people from all walks of life.</p>
+      <h3 style="margin:8px 0 6px">Some of the games I love</h3>
+      <ul>
+        <li>Halo</li>
+        <li>Dishonored</li>
+        <li>Left 4 Dead</li>
+        <li>Hollow Knight</li>
+        <li>Slay the Spire</li>
+        <li>BioShock Infinite</li>
+        <li>Mass Effect</li>
+      </ul>
 
-    <h2>Projects</h2>
-    <div class="grid">
-      <article class="card reveal">
-        <h3>Card-Based Strategy Game</h3>
-        <p>A Slay-the-Spire-style deckbuilder focused on clearing waves of enemies and building a deck. Features some custom art.</p>
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
-        <a class="btn" href="https://github.com/Uncrustable125/CardBattler" target="_blank" rel="noreferrer">View on GitHub</a>
-      </article>
+      <h2>Other Skills</h2>
+      <p>Beyond game dev, I can tackle software, hardware, and practical projects.</p>
+      <ul>
+        <li><strong>Programming:</strong> C, C#, C++, Python, SolidWorks, Unity</li>
+        <li><strong>Engineering Tools:</strong> Calculus, IT</li>
+        <li><strong>Hardware Experience:</strong> Microcontrollers, Soldering, 3D Printing, Laser Cutting</li>
+        <li><strong>Life Skills:</strong> Recovery and life coach — 10 years, Inter/Intra-personal skills</li>
+      </ul>
 
-      <article class="card reveal">
-        <h3>Name Recall Challenge</h3>
-        <p>A memory-based game where users match faces and names. Played with an EEG monitor. Professional project for the NTL group’s NeuroCoach.</p>
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
-        <div class="top-actions" style="justify-content:flex-start">
-          <a class="btn" href="https://ntlgroupinc.com/neurocoach/" target="_blank" rel="noreferrer">NTL NeuroCoach Homepage</a>
-          <span style="align-self:center;color:#6b7280;font-size:12px">Project available on request</span>
-        </div>
-      </article>
+      <h2>Contact</h2>
+      <p>Email: <a class="btn secondary" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
+      <p>GitHub: <a class="btn secondary" href="https://github.com/Uncrustable125" target="_blank" rel="noreferrer">Uncrustable125</a></p>
 
-      <article class="card reveal">
-        <h3>Farm Game</h3>
-        <p>A farm game similar to Stardew Valley or Harvest Moon. Shows off a tile-based farm/crop system and a dialog system. First real Unity project; some art original.</p>
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
-        <a class="btn" href="https://github.com/Uncrustable125/Farm-Game" target="_blank" rel="noreferrer">View on GitHub</a>
-      </article>
-
-      <article class="card reveal">
-        <h3>Unwinnable Tic-Tac-Toe</h3>
-        <p>Quick project I made for fun. You can’t win.</p>
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
-        <a class="btn" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank" rel="noreferrer">View on GitHub</a>
-      </article>
+      <footer>© <span id="y"></span> Ryan R • Vanilla HTML/CSS</footer>
     </div>
-
-    <h2>About Me</h2>
-    <p>Outside of development, I’m a spiritual and curious person — I want to grow with others, learn from different cultures, and meet people from all walks of life.</p>
-    <h3 style="margin:8px 0 6px">Some of the games I love</h3>
-    <ul>
-      <li>Halo</li>
-      <li>Dishonored</li>
-      <li>Left 4 Dead</li>
-      <li>Hollow Knight</li>
-      <li>Slay the Spire</li>
-      <li>BioShock Infinite</li>
-      <li>Mass Effect</li>
-    </ul>
-
-    <h2>Other Skills</h2>
-    <p>Beyond game dev, I can tackle software, hardware, and practical projects.</p>
-    <ul>
-      <li><strong>Programming:</strong> C, C#, C++, Python, SolidWorks, Unity</li>
-      <li><strong>Engineering Tools:</strong> Calculus, IT</li>
-      <li><strong>Hardware Experience:</strong> Microcontrollers, Soldering, 3D Printing, Laser Cutting</li>
-      <li><strong>Life Skills:</strong> Recovery and life coach — 10 years, Inter/Intra-personal skills</li>
-    </ul>
-
-    <h2>Contact</h2>
-    <p>Email: <a class="btn secondary" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
-    <p>GitHub: <a class="btn secondary" href="https://github.com/Uncrustable125" target="_blank" rel="noreferrer">Uncrustable125</a></p>
-
-    <footer>© <span id="y"></span> Ryan R • Vanilla HTML/CSS</footer>
   </div>
 
   <script>
