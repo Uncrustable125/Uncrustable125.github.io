@@ -7,52 +7,82 @@
   <meta name="description" content="Portfolio of Ryan R — Unity developer and programmer. Projects include a card-based strategy game, Name Recall Challenge (EEG), a farm sim, and an unwinnable tic-tac-toe." />
   <meta name="robots" content="index, follow" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:#1f2937; /* dark text */
-      line-height:1.6;
-      background: linear-gradient(135deg, #2563eb 0%, #f8fafc 100%); /* blue → light silver/white */
-      min-height: 100vh;
+    /* --- Base theme (no toggle) --- */
+    :root{
+      --accent: #2563eb;            /* button/background blue */
+      --text: #1f2937;              /* slate-800 */
+      --muted: #4b5563;             /* slate-600 */
+      --border: rgba(0,0,0,.12);
+      --radius: 14px;
+      --shadow: 0 4px 12px rgba(0,0,0,.10);
+      --shadow-lg: 0 8px 20px rgba(0,0,0,.12);
     }
 
-    .container {max-width:1000px; margin:0 auto; padding: clamp(20px, 3vw, 28px);}
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text); line-height:1.6;
+      /* Blue → light silver/white */
+      background: linear-gradient(135deg, #2563eb 0%, #f8fafc 100%);
+      min-height: 100vh;
+      transition: background-color .25s ease, color .25s ease;
+    }
+
+    .container{max-width:1000px; margin:0 auto; padding: clamp(20px, 3vw, 28px)}
     a{color:inherit; text-decoration:none}
+
     .btn{
-      display:inline-block; background:#2563eb; color:#fff;
-      padding:10px 16px; border-radius:14px;
-      font-weight:600; border:1px solid transparent;
-      box-shadow:0 4px 12px rgba(0,0,0,.1);
+      display:inline-block; background: var(--accent); color:#fff;
+      padding:10px 16px; border-radius: var(--radius);
+      font-weight:600; border:1px solid transparent; box-shadow: var(--shadow);
       transition: transform .15s ease, filter .2s ease;
     }
-    .btn:hover{transform:translateY(-1px); filter:saturate(1.05)}
-    .btn.secondary{background:transparent; color:#1f2937; border:1px solid rgba(0,0,0,.12)}
+    .btn:hover{ transform: translateY(-1px); filter: saturate(1.05) }
+    .btn.secondary{ background: transparent; color: var(--text); border:1px solid var(--border) }
 
-    header{text-align:center; padding: clamp(48px, 7vw, 80px) 16px 36px}
-    header h1{font-size:clamp(1.9rem, 3.6vw, 2.8rem); margin:0 0 10px; letter-spacing:-.02em}
-    header p{max-width:720px; margin:0 auto 12px; color:#4b5563}
+    header{ text-align:center; padding: clamp(48px, 7vw, 80px) 16px 36px }
+    header h1{ font-size: clamp(1.9rem, 3.6vw, 2.8rem); margin:0 0 10px; letter-spacing:-.02em }
+    header p{ max-width:720px; margin:0 auto 12px; color: var(--muted) }
 
-    .top-actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px}
-    .badges{display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:16px 0}
-    .badge{background:#fff; border:1px solid rgba(0,0,0,.08); color:#4b5563; padding:6px 10px; border-radius:999px; font-size:.85rem}
+    .top-actions{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:14px }
 
-    h2{font-size:1.4rem; margin:26px 0 12px}
-    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px}
-    .card{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,.1); padding:18px; display:flex; flex-direction:column}
-    .card h3{margin:0 0 6px}
-    .card p{color:#4b5563; margin:0 0 8px; flex-grow:1}
-    .card:hover{transform: translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.12)}
+    .badges{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:16px 0 }
+    .badge{
+      background:#fff; border:1px solid var(--border); color: var(--muted);
+      padding:6px 10px; border-radius:999px; font-size:.85rem
+    }
 
-    .embed{position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; margin:8px 0 10px; background:#000}
-    .embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+    h2{ font-size:1.4rem; margin:26px 0 12px }
 
-    footer{text-align:center; font-size:.9rem; color:#4b5563; margin:40px 0 10px}
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px }
+    .card{
+      background:#fff; border:1px solid var(--border); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding:18px; display:flex; flex-direction:column
+    }
+    .card h3{ margin:0 0 6px }
+    .card p{ color: var(--muted); margin:0 0 8px; flex-grow:1 }
+    .card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-lg) }
+
+    .embed{ position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; margin:8px 0 10px; background:#000 }
+    .embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0 }
+
+    footer{ text-align:center; font-size:.9rem; color: var(--muted); margin:40px 0 10px }
+
+    /* --- Intro transition (restored) --- */
+    @media (prefers-reduced-motion: no-preference){
+      .card{ transition: transform .25s ease, box-shadow .25s ease }
+      .reveal{ animation: pop .5s ease both }
+      @keyframes pop{
+        from{ opacity:0; transform: translateY(8px) scale(.98) }
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
+    <header class="reveal">
       <h1>Ryan R</h1>
       <p>Game Developer & Full Stack Programmer</p>
       <p>I've been honing my programming skills for 7+ years in and out of college. I'm a fast learner and very capable person</p>
@@ -73,29 +103,38 @@
 
     <h2>Projects</h2>
     <div class="grid">
-      <!-- Your project cards here (same as before) -->
-    </div>
+      <article class="card reveal">
+        <h3>Card-Based Strategy Game</h3>
+        <p>A Slay-the-Spire-style deckbuilder focused on clearing waves of enemies and building a deck. Features some custom art.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/CardBattler" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
 
-    <h2>About Me</h2>
-    <p>Outside of development, I’m a spiritual and curious person — I want to grow with others, learn from different cultures, and meet people from all walks of life.</p>
+      <article class="card reveal">
+        <h3>Name Recall Challenge</h3>
+        <p>A memory-based game where users match faces and names. Played with an EEG monitor. Professional project for the NTL group’s NeuroCoach.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="top-actions" style="justify-content:flex-start">
+          <a class="btn" href="https://ntlgroupinc.com/neurocoach/" target="_blank" rel="noreferrer">NTL NeuroCoach Homepage</a>
+          <span style="align-self:center;color:#6b7280;font-size:12px">Project available on request</span>
+        </div>
+      </article>
 
-    <h2>Other Skills</h2>
-    <ul>
-      <li><strong>Programming:</strong> C, C#, C++, Python, SolidWorks, Unity</li>
-      <li><strong>Engineering Tools:</strong> Calculus, IT</li>
-      <li><strong>Hardware Experience:</strong> Microcontrollers, Soldering, 3D Printing, Laser Cutting</li>
-      <li><strong>Life Skills:</strong> Recovery and life coach — 10 years, Inter/Intra-personal skills</li>
-    </ul>
+      <article class="card reveal">
+        <h3>Farm Game</h3>
+        <p>A farm game similar to Stardew Valley or Harvest Moon. Shows off a tile based farm/crop system and a dialog system. First real Unity project; some art original.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/Farm-Game" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
 
-    <h2>Contact</h2>
-    <p>Email: <a class="btn secondary" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
-    <p>GitHub: <a class="btn secondary" href="https://github.com/Uncrustable125" target="_blank" rel="noreferrer">Uncrustable125</a></p>
-
-    <footer>© <span id="y"></span> Ryan R • Vanilla HTML/CSS</footer>
-  </div>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+      <article class="card reveal">
+        <h3>Unwinnable Tic-Tac-Toe</h3>
+        <p>Quick project I made for fun. You can’t win.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></ifr
