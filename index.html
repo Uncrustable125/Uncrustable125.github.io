@@ -9,11 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
-    /* --- Base theme (no toggle) --- */
     :root{
-      --accent: #2563eb;            /* button/background blue */
-      --text: #1f2937;              /* slate-800 */
-      --muted: #4b5563;             /* slate-600 */
+      --accent: #2563eb;
+      --text: #1f2937;
+      --muted: #4b5563;
       --border: rgba(0,0,0,.12);
       --radius: 14px;
       --shadow: 0 4px 12px rgba(0,0,0,.10);
@@ -22,10 +21,11 @@
 
     *{box-sizing:border-box}
     body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text); line-height:1.6;
-      /* Blue → light silver/white */
-      background: linear-gradient(135deg, #2563eb 0%, #f8fafc 100%);
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      line-height:1.6;
+      background: linear-gradient(135deg, #2563eb 0%, #f8fafc 100%); /* blue → silver/white */
       min-height: 100vh;
       transition: background-color .25s ease, color .25s ease;
     }
@@ -70,7 +70,7 @@
 
     footer{ text-align:center; font-size:.9rem; color: var(--muted); margin:40px 0 10px }
 
-    /* --- Intro transition (restored) --- */
+    /* Intro transition */
     @media (prefers-reduced-motion: no-preference){
       .card{ transition: transform .25s ease, box-shadow .25s ease }
       .reveal{ animation: pop .5s ease both }
@@ -126,7 +126,7 @@
 
       <article class="card reveal">
         <h3>Farm Game</h3>
-        <p>A farm game similar to Stardew Valley or Harvest Moon. Shows off a tile based farm/crop system and a dialog system. First real Unity project; some art original.</p>
+        <p>A farm game similar to Stardew Valley or Harvest Moon. Shows off a tile-based farm/crop system and a dialog system. First real Unity project; some art original.</p>
         <div class="embed">
           <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allow="encrypted-media" allowfullscreen></iframe>
         </div>
@@ -137,7 +137,11 @@
         <h3>Unwinnable Tic-Tac-Toe</h3>
         <p>Quick project I made for fun. You can’t win.</p>
         <div class="embed">
-          <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></ifr
+          <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
+    </div>
 
     <h2>About Me</h2>
     <p>Outside of development, I’m a spiritual and curious person — I want to grow with others, learn from different cultures, and meet people from all walks of life.</p>
@@ -156,7 +160,7 @@
     <p>Beyond game dev, I can tackle software, hardware, and practical projects.</p>
     <ul>
       <li><strong>Programming:</strong> C, C#, C++, Python, SolidWorks, Unity</li>
-      <li><strong>Engineering Tools:</strong>Calculus, IT</li>
+      <li><strong>Engineering Tools:</strong> Calculus, IT</li>
       <li><strong>Hardware Experience:</strong> Microcontrollers, Soldering, 3D Printing, Laser Cutting</li>
       <li><strong>Life Skills:</strong> Recovery and life coach — 10 years, Inter/Intra-personal skills</li>
     </ul>
@@ -165,38 +169,11 @@
     <p>Email: <a class="btn secondary" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
     <p>GitHub: <a class="btn secondary" href="https://github.com/Uncrustable125" target="_blank" rel="noreferrer">Uncrustable125</a></p>
 
-    <footer>© <span id="y"></span> Ryan R • Switchable Light/Dark • Vanilla HTML/CSS</footer>
+    <footer>© <span id="y"></span> Ryan R • Vanilla HTML/CSS</footer>
   </div>
 
   <script>
-    (function(){
-      const root = document.documentElement;
-      const btnAuto = document.getElementById('themeAuto');
-      const btnLight = document.getElementById('themeLight');
-      const btnDark  = document.getElementById('themeDark');
-      function setPressed(which){
-        btnAuto.setAttribute('aria-pressed', String(which==='auto'));
-        btnLight.setAttribute('aria-pressed', String(which==='light'));
-        btnDark .setAttribute('aria-pressed', String(which==='dark'));
-      }
-      function apply(mode){
-        if(mode==='light' || mode==='dark'){
-          root.setAttribute('data-theme', mode);
-          localStorage.setItem('theme-mode', mode);
-        }else{
-          root.setAttribute('data-theme', 'auto');
-          localStorage.removeItem('theme-mode');
-        }
-        setPressed(mode||'auto');
-      }
-      try{ apply(localStorage.getItem('theme-mode') || 'auto'); }catch(e){ apply('auto'); }
-      btnAuto.addEventListener('click', ()=>apply('auto'));
-      btnLight.addEventListener('click', ()=>apply('light'));
-      btnDark .addEventListener('click', ()=>apply('dark'));
-      const media = window.matchMedia('(prefers-color-scheme: dark)');
-      media.addEventListener('change', ()=>{ if(!localStorage.getItem('theme-mode')) root.setAttribute('data-theme', 'auto'); });
-      document.getElementById('y').textContent = new Date().getFullYear();
-    })();
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
