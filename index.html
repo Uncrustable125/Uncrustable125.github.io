@@ -147,17 +147,90 @@
     <footer>© <span id="y"></span> Ryan R • Switchable Light/Dark • Vanilla HTML/CSS</footer>
   </div>
 
+    <h2>Projects</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Card-Based Strategy Game</h3>
+        <p>A Slay‑the‑Spire‑style deckbuilder focused on clearing waves of enemies and building a deck. Features some custom art.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/CardBattler" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>Name Recall Challenge</h3>
+        <p>A memory‑based game where users match faces and names. Played with an EEG monitor. Professional project for the NTL group’s NeuroCoach.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="top-actions" style="justify-content:flex-start">
+          <a class="btn" href="https://ntlgroupinc.com/neurocoach/" target="_blank" rel="noreferrer">NTL NeuroCoach Homepage</a>
+          <span style="align-self:center;color:var(--muted);font-size:12px">Project available on request</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Farm Game</h3>
+        <p>A farm game similar to Stardew Valley or Harvest Moon. Shows off a tile based farm/crop system and a dialog system. First real Unity project; some art original.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/Farm-Game" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
+
+      <article class="card">
+        <h3>Unwinnable Tic‑Tac‑Toe</h3>
+        <p>Quick project I made for fun. You can’t win.</p>
+        <div class="embed">
+          <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+        <a class="btn" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank" rel="noreferrer">View on GitHub</a>
+      </article>
+    </div>
+
+    <h2>About Me</h2>
+    <p>Outside of development, I’m a spiritual and curious person — I want to grow with others, learn from different cultures, and meet people from all walks of life.</p>
+    <h3 style="margin:8px 0 6px">Some of the games I love</h3>
+    <ul>
+      <li>Halo</li>
+      <li>Dishonored</li>
+      <li>Left 4 Dead</li>
+      <li>Hollow Knight</li>
+      <li>Slay the Spire</li>
+      <li>BioShock Infinite</li>
+      <li>Mass Effect</li>
+    </ul>
+
+    <h2>Other Skills</h2>
+    <p>Beyond game dev, I can tackle software, hardware, and practical projects.</p>
+    <ul>
+      <li><strong>Programming:</strong> C, C#, C++, Python, SolidWorks, Unity</li>
+      <li><strong>Engineering Tools:</strong>Calculus, IT</li>
+      <li><strong>Hardware Experience:</strong> Microcontrollers, Soldering, 3D Printing, Laser Cutting</li>
+      <li><strong>Life Skills:</strong> Recovery and life coach — 10 years, Inter/Intra-personal skills</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>Email: <a class="btn secondary" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
+    <p>GitHub: <a class="btn secondary" href="https://github.com/Uncrustable125" target="_blank" rel="noreferrer">Uncrustable125</a></p>
+
+    <footer>© <span id="y"></span> Ryan R • Switchable Light/Dark • Vanilla HTML/CSS</footer>
+  </div>
+
   <script>
     (function(){
       const root = document.documentElement;
       const btnAuto = document.getElementById('themeAuto');
       const btnLight = document.getElementById('themeLight');
-      const btnDark  = document.getElementById('themeDark');
+      const btnDark = document.getElementById('themeDark');
+
       function setPressed(which){
         btnAuto.setAttribute('aria-pressed', String(which==='auto'));
         btnLight.setAttribute('aria-pressed', String(which==='light'));
-        btnDark .setAttribute('aria-pressed', String(which==='dark'));
+        btnDark.setAttribute('aria-pressed',  String(which==='dark'));
       }
+
       function apply(mode){
         if(mode==='light' || mode==='dark'){
           root.setAttribute('data-theme', mode);
@@ -168,12 +241,26 @@
         }
         setPressed(mode||'auto');
       }
-      try{ apply(localStorage.getItem('theme-mode') || 'auto'); }catch(e){ apply('auto'); }
+
+      // init from storage or auto
+      try{
+        const saved = localStorage.getItem('theme-mode');
+        apply(saved || 'auto');
+      }catch(e){ apply('auto'); }
+
       btnAuto.addEventListener('click', ()=>apply('auto'));
       btnLight.addEventListener('click', ()=>apply('light'));
-      btnDark .addEventListener('click', ()=>apply('dark'));
+      btnDark.addEventListener('click', ()=>apply('dark'));
+
+      // react to system changes when in auto
       const media = window.matchMedia('(prefers-color-scheme: dark)');
-      media.addEventListener('change', ()=>{ if(!localStorage.getItem('theme-mode')) root.setAttribute('data-theme', 'auto'); });
+      media.addEventListener('change', ()=>{
+        if(!localStorage.getItem('theme-mode')){
+          // in auto mode, just trigger reflow so CSS @media picks up
+          root.setAttribute('data-theme', 'auto');
+        }
+      });
+
       document.getElementById('y').textContent = new Date().getFullYear();
     })();
   </script>
