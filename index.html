@@ -1,123 +1,58 @@
 <!doctype html>
-<html lang="en" data-theme="auto">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ryan R — Game Dev & Full Stack Programmer</title>
   <meta name="description" content="Portfolio of Ryan R — Unity developer and programmer. Projects include a card-based strategy game, Name Recall Challenge (EEG), a farm sim, and an unwinnable tic-tac-toe." />
   <meta name="robots" content="index, follow" />
-  <meta name="color-scheme" content="light dark" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg-start: 247 249 252;   
-      --bg-end:   236 241 255;   
-      --accent:   37 99 235;     
-      --accent-contrast: #ffffff;
-      --accent-2: 236 72 153;    
-      --card: 255 255 255 / 0.65;   
-      --surface: 255 255 255 / 0.35;
-      --text: 31 41 55;             
-      --muted: 75 85 99;            
-      --border: 0 0 0 / .12;
-      --ring: 37 99 235 / .35;
-      --radius: 14px;
-      --shadow: 0 10px 30px rgba(10,10,20,.08);
-    }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg-start: 12 16 28;
-        --bg-end:   8 12 24;
-        --accent:   96 165 250;  
-        --accent-contrast: #0b1220;
-        --accent-2: 244 114 182; 
-        --card: 255 255 255 / 0.06;
-        --surface: 255 255 255 / 0.04;
-        --text: 229 231 235;      
-        --muted: 163 169 183;     
-        --border: 255 255 255 / .10;
-        --ring: 129 140 248 / .40;
-        --shadow: 0 20px 50px rgba(0,0,0,.55);
-      }
-    }
-    html[data-theme="light"] :root, html[data-theme="light"] body{color-scheme: light}
-    html[data-theme="dark"]  :root, html[data-theme="dark"] body{color-scheme: dark}
-
-    body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:rgb(var(--text)); line-height:1.6;
-      background:
-        linear-gradient(135deg, rgb(var(--bg-start)) 0%, rgb(var(--bg-end)) 100%),
-        url('https://www.transparenttextures.com/patterns/cubes.png');
-      background-size: cover, 200px 200px;
-      background-attachment: fixed;
-      transition: background-color .25s ease, color .25s ease;
-      min-height: 100svh;
-    }
-    .noise{ position:fixed; inset:0; z-index:-1; pointer-events:none;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity=".04"/></svg>');
-      mix-blend-mode: soft-light; opacity:.6
+    body {
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:#1f2937; /* dark text */
+      line-height:1.6;
+      background: linear-gradient(135deg, #2563eb 0%, #f8fafc 100%); /* blue → light silver/white */
+      min-height: 100vh;
     }
 
-    .container{max-width:1000px;margin:0 auto;padding: clamp(20px, 3vw, 28px)}
-    a{color:inherit;text-decoration:none}
+    .container {max-width:1000px; margin:0 auto; padding: clamp(20px, 3vw, 28px);}
+    a{color:inherit; text-decoration:none}
     .btn{
-      display:inline-block; background: rgb(var(--accent)); color:var(--accent-contrast); padding:10px 16px; border-radius:var(--radius);
-      font-weight:600; border:1px solid transparent; box-shadow:var(--shadow); transition: transform .15s ease, filter .2s ease;
+      display:inline-block; background:#2563eb; color:#fff;
+      padding:10px 16px; border-radius:14px;
+      font-weight:600; border:1px solid transparent;
+      box-shadow:0 4px 12px rgba(0,0,0,.1);
+      transition: transform .15s ease, filter .2s ease;
     }
     .btn:hover{transform:translateY(-1px); filter:saturate(1.05)}
-    .btn.secondary{background:transparent; color:rgb(var(--text)); border:1px solid rgba(var(--border));}
-    .btn:focus-visible{outline:none; box-shadow:0 0 0 3px rgba(var(--ring))}
+    .btn.secondary{background:transparent; color:#1f2937; border:1px solid rgba(0,0,0,.12)}
 
-    header{ text-align:center; padding: clamp(48px, 7vw, 80px) 16px 36px }
-    header h1{ font-size:clamp(1.9rem, 3.6vw, 2.8rem); margin:0 0 10px; letter-spacing:-.02em }
-    header p{ max-width:720px; margin:0 auto 12px; color:rgb(var(--muted)) }
+    header{text-align:center; padding: clamp(48px, 7vw, 80px) 16px 36px}
+    header h1{font-size:clamp(1.9rem, 3.6vw, 2.8rem); margin:0 0 10px; letter-spacing:-.02em}
+    header p{max-width:720px; margin:0 auto 12px; color:#4b5563}
 
-    .top-actions{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:14px }
+    .top-actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px}
+    .badges{display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:16px 0}
+    .badge{background:#fff; border:1px solid rgba(0,0,0,.08); color:#4b5563; padding:6px 10px; border-radius:999px; font-size:.85rem}
 
-    .badges{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:16px 0 }
-    .badge{ background: rgba(var(--surface)); border:1px solid rgba(var(--border)); color:rgb(var(--muted)); padding:6px 10px; border-radius:999px; font-size:.85rem; backdrop-filter: blur(8px) }
+    h2{font-size:1.4rem; margin:26px 0 12px}
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px}
+    .card{background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; box-shadow:0 4px 12px rgba(0,0,0,.1); padding:18px; display:flex; flex-direction:column}
+    .card h3{margin:0 0 6px}
+    .card p{color:#4b5563; margin:0 0 8px; flex-grow:1}
+    .card:hover{transform: translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.12)}
 
-    h2{ font-size:1.4rem; margin:26px 0 12px }
+    .embed{position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; margin:8px 0 10px; background:#000}
+    .embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
 
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px }
-    .card{ position:relative; background: rgba(var(--card)); border:1px solid rgba(var(--border)); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; display:flex; flex-direction:column; backdrop-filter: blur(10px); isolation:isolate; overflow:hidden }
-    .card h3{ margin:0 0 6px }
-    .card p{ color:rgb(var(--muted)); margin:0 0 8px; flex-grow:1 }
-    .card:hover{ transform: translateY(-2px); box-shadow: 0 18px 45px rgba(10,10,20,.12) }
-
-    .embed{ position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden; margin:8px 0 10px; background:#000; border:1px solid rgba(var(--border)) }
-    .embed iframe{ position:absolute; inset:0; width:100%; height:100%; border:0 }
-
-    footer{ text-align:center; font-size:.9rem; color:rgb(var(--muted)); margin:40px 0 10px }
-
-    .theme-toggle{ display:inline-flex; align-items:center; gap:8px; background: rgba(var(--card)); border:1px solid rgba(var(--border)); border-radius:999px; padding:6px; box-shadow:var(--shadow); backdrop-filter: blur(8px) }
-    .theme-toggle button{ background:transparent; border:0; padding:8px 10px; border-radius:999px; cursor:pointer; color:rgb(var(--muted)); font-weight:700 }
-    .theme-toggle button[aria-pressed="true"]{ background: rgb(var(--accent)); color:var(--accent-contrast) }
-    .visually-hidden{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
-
-    @media (prefers-reduced-motion: no-preference){
-      .card{ transition: transform .25s ease, box-shadow .25s ease }
-      .reveal{ animation: pop .5s ease both }
-      @keyframes pop{ from{opacity:0; transform: translateY(8px) scale(.98)} }
-    }
+    footer{text-align:center; font-size:.9rem; color:#4b5563; margin:40px 0 10px}
   </style>
-  <script>
-    (function(){
-      try{
-        const saved = localStorage.getItem('theme-mode');
-        if(saved === 'light' || saved === 'dark'){
-          document.documentElement.setAttribute('data-theme', saved);
-        }else{
-          document.documentElement.setAttribute('data-theme', 'auto');
-        }
-      }catch(e){}
-    })();
-  </script>
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
   <div class="container">
-    <header class="reveal">
+    <header>
       <h1>Ryan R</h1>
       <p>Game Developer & Full Stack Programmer</p>
       <p>I've been honing my programming skills for 7+ years in and out of college. I'm a fast learner and very capable person</p>
@@ -133,76 +68,21 @@
       <div class="top-actions">
         <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
         <a class="btn secondary" href="https://github.com/uncrustable125" target="_blank" rel="noreferrer">GitHub</a>
-
-        <div class="theme-toggle" role="group" aria-label="Theme toggle">
-          <span class="visually-hidden" id="themeLabel">Theme</span>
-          <button type="button" id="themeAuto" aria-pressed="true" aria-describedby="themeLabel">Auto</button>
-          <button type="button" id="themeLight" aria-pressed="false" aria-describedby="themeLabel">Light</button>
-          <button type="button" id="themeDark" aria-pressed="false" aria-describedby="themeLabel">Dark</button>
-        </div>
       </div>
     </header>
 
     <h2>Projects</h2>
     <div class="grid">
-      <article class="card">
-        <h3>Card-Based Strategy Game</h3>
-        <p>A Slay‑the‑Spire‑style deckbuilder focused on clearing waves of enemies and building a deck. Features some custom art.</p>
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
-        <a class="btn" href="https://github.com/Uncrustable125/CardBattler" target="_blank" rel="noreferrer">View on GitHub</a>
-      </article>
-
-      <article class="card">
-        <h3>Name Recall Challenge</h3>
-        <p>A memory‑based game where users match faces and names. Played with an EEG monitor. Professional project for the NTL group’s NeuroCoach.</p>
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
-        <div class="top-actions" style="justify-content:flex-start">
-          <a class="btn" href="https://ntlgroupinc.com/neurocoach/" target="_blank" rel="noreferrer">NTL NeuroCoach Homepage</a>
-          <span style="align-self:center;color:var(--muted);font-size:12px">Project available on request</span>
-        </div>
-      </article>
-
-      <article class="card">
-        <h3>Farm Game</h3>
-        <p>A farm game similar to Stardew Valley or Harvest Moon. Shows off a tile based farm/crop system and a dialog system. First real Unity project; some art original.</p>
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
-        <a class="btn" href="https://github.com/Uncrustable125/Farm-Game" target="_blank" rel="noreferrer">View on GitHub</a>
-      </article>
-
-      <article class="card">
-        <h3>Unwinnable Tic‑Tac‑Toe</h3>
-        <p>Quick project I made for fun. You can’t win.</p>
-        <div class="embed">
-          <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
-        <a class="btn" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank" rel="noreferrer">View on GitHub</a>
-      </article>
+      <!-- Your project cards here (same as before) -->
     </div>
 
     <h2>About Me</h2>
     <p>Outside of development, I’m a spiritual and curious person — I want to grow with others, learn from different cultures, and meet people from all walks of life.</p>
-    <h3 style="margin:8px 0 6px">Some of the games I love</h3>
-    <ul>
-      <li>Halo</li>
-      <li>Dishonored</li>
-      <li>Left 4 Dead</li>
-      <li>Hollow Knight</li>
-      <li>Slay the Spire</li>
-      <li>BioShock Infinite</li>
-      <li>Mass Effect</li>
-    </ul>
 
     <h2>Other Skills</h2>
-    <p>Beyond game dev, I can tackle software, hardware, and practical projects.</p>
     <ul>
       <li><strong>Programming:</strong> C, C#, C++, Python, SolidWorks, Unity</li>
-      <li><strong>Engineering Tools:</strong>Calculus, IT</li>
+      <li><strong>Engineering Tools:</strong> Calculus, IT</li>
       <li><strong>Hardware Experience:</strong> Microcontrollers, Soldering, 3D Printing, Laser Cutting</li>
       <li><strong>Life Skills:</strong> Recovery and life coach — 10 years, Inter/Intra-personal skills</li>
     </ul>
@@ -211,38 +91,11 @@
     <p>Email: <a class="btn secondary" href="mailto:ryanrookis@gmail.com">ryanrookis@gmail.com</a></p>
     <p>GitHub: <a class="btn secondary" href="https://github.com/Uncrustable125" target="_blank" rel="noreferrer">Uncrustable125</a></p>
 
-    <footer>© <span id="y"></span> Ryan R • Switchable Light/Dark • Vanilla HTML/CSS</footer>
+    <footer>© <span id="y"></span> Ryan R • Vanilla HTML/CSS</footer>
   </div>
 
   <script>
-    (function(){
-      const root = document.documentElement;
-      const btnAuto = document.getElementById('themeAuto');
-      const btnLight = document.getElementById('themeLight');
-      const btnDark  = document.getElementById('themeDark');
-      function setPressed(which){
-        btnAuto.setAttribute('aria-pressed', String(which==='auto'));
-        btnLight.setAttribute('aria-pressed', String(which==='light'));
-        btnDark .setAttribute('aria-pressed', String(which==='dark'));
-      }
-      function apply(mode){
-        if(mode==='light' || mode==='dark'){
-          root.setAttribute('data-theme', mode);
-          localStorage.setItem('theme-mode', mode);
-        }else{
-          root.setAttribute('data-theme', 'auto');
-          localStorage.removeItem('theme-mode');
-        }
-        setPressed(mode||'auto');
-      }
-      try{ apply(localStorage.getItem('theme-mode') || 'auto'); }catch(e){ apply('auto'); }
-      btnAuto.addEventListener('click', ()=>apply('auto'));
-      btnLight.addEventListener('click', ()=>apply('light'));
-      btnDark .addEventListener('click', ()=>apply('dark'));
-      const media = window.matchMedia('(prefers-color-scheme: dark)');
-      media.addEventListener('change', ()=>{ if(!localStorage.getItem('theme-mode')) root.setAttribute('data-theme', 'auto'); });
-      document.getElementById('y').textContent = new Date().getFullYear();
-    })();
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
