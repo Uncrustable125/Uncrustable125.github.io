@@ -98,6 +98,11 @@
     }
     .theme-toggle button[aria-pressed="true"]{ background:var(--accent); color:var(--accent-contrast) }
     .visually-hidden{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+       @media (prefers-reduced-motion: no-preference){
+      .card{ transition: transform .25s ease, box-shadow .25s ease }
+      .reveal{ animation: pop .5s ease both }
+      @keyframes pop{ from{opacity:0; transform: translateY(8px) scale(.98)} }
+    }
   </style>
   <script>
     /* Apply saved theme early to avoid FOUC */
@@ -116,7 +121,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>Ryan R —</h1>
+      <h1>Ryan R</h1>
       <p>Game Developer & Full Stack Programmer</p>
 	  <p>I've been honing my programming skills for 7+ years in and out of college. I'm a fast learner and very capable person</p>
 	  <p>All my Unity skills I taught myself and can teach myself any languages or skills</p>
