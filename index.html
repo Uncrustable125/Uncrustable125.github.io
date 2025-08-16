@@ -88,29 +88,46 @@
         from{ opacity:0; transform: translateY(8px) scale(.98) }
       }
     }
+	
+	.hero {
+  text-align: center;
+  padding: clamp(80px, 12vw, 140px) 16px;
+  color: white;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+              url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=80');
+  background-size: cover;
+  background-position: center;
+}
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 14px;
+}
+.hero p {
+  max-width: 720px;
+  margin: 0 auto 12px;
+  color: rgba(255,255,255,0.85);
+}
   </style>
 </head>
 <body>
-  <div class="container">
-    <header class="reveal">
-      <h1>Ryan Rookis</h1>
-      <p>Game Developer & Full Stack Programmer</p>
-      <p>I've been honing my programming skills for 7+ years in and out of college. I'm a fast learner and very capable person</p>
-      <p>All my Unity skills I taught myself and can teach myself any languages or skills</p>
+<header class="hero">
+  <h1>Ryan R</h1>
+  <p>Game Developer & Full Stack Programmer</p>
+  <p>I've been honing my programming skills for 7+ years in and out of college. I'm a fast learner and very capable person</p>
+  <p>All my Unity skills I taught myself and can teach myself any languages or skills</p>
 
-      <div class="badges">
-        <span class="badge">Unity / C#</span>
-        <span class="badge">Gameplay</span>
-        <span class="badge">VR / 2D / 3D</span>
-        <span class="badge">Tools &amp; UI</span>
-      </div>
-
-      <div class="top-actions">
-        <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
-        <a class="btn secondary" href="https://github.com/uncrustable125" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-    </header>
+  <div class="badges">
+    <span class="badge">Unity / C#</span>
+    <span class="badge">Gameplay</span>
+    <span class="badge">VR / 2D / 3D</span>
+    <span class="badge">Tools &amp; UI</span>
   </div>
+
+  <div class="top-actions">
+    <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
+    <a class="btn secondary" href="https://github.com/uncrustable125" target="_blank" rel="noreferrer">GitHub</a>
+  </div>
+</header>
 
   <div class="content-box">
     <div class="container">
