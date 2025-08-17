@@ -89,23 +89,23 @@
       }
     }
 	
-	.hero {
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  min-height: 100vh; /* takes up full screen height */
+  width: 100%;
+  
   text-align: center;
-  padding: clamp(80px, 12vw, 140px) 16px;
   color: white;
+
   background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-              url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1400&q=80');
+              url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80');
   background-size: cover;
   background-position: center;
-}
-.hero h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 14px;
-}
-.hero p {
-  max-width: 720px;
-  margin: 0 auto 12px;
-  color: rgba(255,255,255,0.85);
+  background-attachment: fixed; /* optional parallax-y effect */
 }
   </style>
 </head>
