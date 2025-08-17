@@ -37,14 +37,16 @@ body {
       text-align:center; color:#fff; padding: 0 16px;
 
       /* ✅ Use the direct/redirecting Unsplash endpoint by photo ID */
-  background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-    url('https://images.pexels.com/photos/6424585/pexels-photo-6424585.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1400&dpr=1');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-      /* background-attachment: fixed; */
-    }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #111; /* dark text */
+  line-height: 1.6;
+  min-height: 100vh;
+
+  background: skyblue;
+}
+
     .hero h1{ font-size:clamp(2rem, 4vw, 3rem); margin:0 0 14px; letter-spacing:-.02em }
     .hero p{ max-width:720px; margin:0 auto 12px; color:rgba(255,255,255,.88) }
 
@@ -58,7 +60,11 @@ body {
       transition: transform .15s ease, filter .2s ease;
     }
     .btn:hover{ transform: translateY(-1px); filter: saturate(1.05) }
-    .btn.secondary{ background: transparent; color: #fff; border:1px solid rgba(255,255,255,.35) }
+.btn.secondary {
+  background: transparent;
+  color: #111;  /* make text dark */
+  border: 1px solid rgba(0,0,0,.2);
+}
 
     .top-actions{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:14px }
 
@@ -69,14 +75,16 @@ body {
     }
 
     /* CONTENT BOX for the rest */
-    .content-box{
-      background:#ffffffee;
-      border-radius:16px;
-      box-shadow:0 10px 30px rgba(0,0,0,.12);
-      margin:40px auto;
-      max-width:1100px;
-      padding:20px 0;
-    }
+.content-box {
+  background: rgba(255, 255, 255, 0.7); /* light/translucent */
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  margin: 40px auto;
+  max-width: 1100px;
+  padding: 20px 0;
+  backdrop-filter: blur(6px);
+}
+
 
     h2{ font-size:1.4rem; margin:26px 0 12px; color:var(--text) }
     .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px }
