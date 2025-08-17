@@ -68,8 +68,11 @@ padding-top: 32px;
       transition: transform .15s ease, filter .2s ease;
     }
     .btn:hover{ transform: translateY(-1px); filter: saturate(1.05) }
-    .btn.secondary{ background: transparent; color: #fff; border:1px solid rgba(255,255,255,.35) }
-
+.btn.secondary {
+  background: rgba(200, 245, 245, 0.6); /* same light teal as content-box */
+  color: #000; /* black text */
+  border: 1px solid var(--border);
+}
     .top-actions{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap; margin-top:14px }
 
     .badges{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin:16px 0 }
