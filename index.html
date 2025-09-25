@@ -23,7 +23,7 @@
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
-      background: #1f2937; /* dark background */
+      background: #2c3e50; /* lighter dark blue-gray */
     }
 
     a{color:inherit; text-decoration:none}
@@ -78,15 +78,16 @@
       padding: 40px 20px;
       border-radius: 16px;
       overflow: hidden;
-            color: #fff;
-	  background: rgba(200, 245, 245, 0.6);
-	  backdrop-filter: blur(6px);
+      color: #fff;
+      background: rgba(220, 220, 220, 0.85); /* lighter silver/grey */
+      backdrop-filter: blur(6px);
       box-shadow: var(--shadow);
     }
 
     .project iframe {
       width: 100%;
-      height: 500px;
+      height: 350px; /* reduced from 500px */
+      max-height: 450px; /* prevent extreme stretching on large screens */
       border: none;
       border-radius: 12px;
       margin-bottom: 20px;
@@ -94,8 +95,9 @@
 
     .project h2 {
       font-size: 2rem;
-       margin-bottom: 6px; /* reduced margin to bring description closer */
+      margin-bottom: 6px; /* reduced margin to bring description closer */
       text-align: center;
+      color: #1f2937; /* slightly darker for readability */
     }
 
     .project p {
@@ -103,7 +105,7 @@
       max-width: 900px;
       text-align: center;
       margin-bottom: 16px;
-	   color: var(--text);
+      color: #1f2937;
     }
 
     /* Footer */
@@ -167,32 +169,6 @@
       <h2>Unwinnable Tic-Tac-Toe</h2>
       <p>Quick project I made with AI. You can’t win.</p>
       <a class="btn" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank">View on GitHub</a>
-    </div>
-
-    <!-- About Me -->
-    <div class="project">
-      <h2>About Me</h2>
-      <p>I am a deep thinker and a spiritual person. I like to be around people and travel. I spend a lot of my free time walking in the woods, playing video games, or socializing. One thing that changed my life was my recovery from drug and alcohol addiction. I'm currently 10 years sober. I currently work as a property manager and developer. I want to break into coding because I enjoy it very much and it feels natural to me.</p>
-    </div>
-
-    <div class="project">
-      <h2>Other Skills</h2>
-      <ul>
-        <li><strong>Programming:</strong> C, C#, C++, Python, HTML, CSS, JavaScript, SolidWorks, Unity</li>
-        <li><strong>Engineering Tools:</strong> Calculus, IT, Circuits</li>
-        <li><strong>Hardware Experience:</strong> Microcontrollers, Soldering, 3D Printing</li>
-        <li><strong>Life Skills:</strong> Recovery and life coach, Inter/Intra-personal skills, Communication Skills</li>
-      </ul>
-    </div>
-
-    <div class="project">
-      <h2>Education</h2>
-      <p>I took courses at The University of Arizona and Florida State University. Many of my skills are self taught.</p>
-    </div>
-
-    <div class="project">
-      <h2>Work Experience</h2>
-      <p>MidGrove LLC - Property Manager and Developer  2022 - 2026 (current job)</p>
     </div>
 
   </div>
