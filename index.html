@@ -10,10 +10,10 @@
   <style>
     :root{
       --accent: #2563eb;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
+      --text: #1f2937; /* darker text for contrast */
+      --muted: #6b7280; /* muted grey */
       --radius: 14px;
-      --shadow: 0 8px 30px rgba(0,0,0,.3);
+      --shadow: 0 8px 30px rgba(0,0,0,.25);
     }
     *{box-sizing:border-box}
 
@@ -23,7 +23,7 @@
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
-      background: #1f2937; /* dark background */
+      background: #2f3845; /* slightly lighter dark background */
     }
 
     a{color:inherit; text-decoration:none}
@@ -63,8 +63,8 @@
     }
     .btn:hover{ transform: translateY(-2px); filter: saturate(1.05) }
     .btn.secondary {
-      background: rgba(255, 255, 255, 0.85);
-      color: #000;
+      background: rgba(245, 245, 245, 0.85);
+      color: #1f2937;
     }
 
     /* Projects Section */
@@ -78,9 +78,9 @@
       padding: 40px 20px;
       border-radius: 16px;
       overflow: hidden;
-      color: #fff;
-	  background: rgba(200, 245, 245, 0.6);
-	  backdrop-filter: blur(6px);
+      color: #1f2937; /* darker text on lighter grey background */
+      background: rgba(220, 220, 220, 0.9); /* light silver/grey */
+      backdrop-filter: blur(6px);
       box-shadow: var(--shadow);
     }
 
@@ -94,15 +94,16 @@
 
     .project h2 {
       font-size: 2rem;
-      margin-bottom: 12px;
+      margin-bottom: 8px; /* reduced margin to bring description closer */
       text-align: center;
     }
 
     .project p {
-      font-size: 1.1rem;
+      font-size: 1.2rem; /* slightly larger description font */
       max-width: 900px;
       text-align: center;
       margin-bottom: 16px;
+      color: var(--text);
     }
 
     /* Footer */
@@ -115,7 +116,7 @@
 
     @media (prefers-reduced-motion: no-preference){
       .project{ transition: transform .25s ease, box-shadow .25s ease }
-      .project:hover{ transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+      .project:hover{ transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
     }
 
   </style>
