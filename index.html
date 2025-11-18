@@ -155,10 +155,11 @@
       margin:40px 0 10px;
     }
 
-    @media (prefers-reduced-motion: no-preference){
-      .project{ transition: transform .25s ease, box-shadow .25s ease }
-      .project:hover{ transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.35); }
-    }
+@media (prefers-reduced-motion: no-preference){
+  .project { transition: box-shadow .25s ease; }
+  .project:hover { box-shadow: 0 12px 40px rgba(0,0,0,.35); }
+}
+
 
   </style>
 </head>
