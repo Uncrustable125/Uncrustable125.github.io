@@ -32,8 +32,6 @@
         color: var(--text);
         line-height: 1.6;
         min-height: 100vh;
-        transform: scale(0.8);
-        transform-origin: top center;
 
         /* Full-page background image */
         background: url("https://images.pexels.com/photos/6424585/pexels-photo-6424585.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1400&dpr=1")
@@ -50,6 +48,13 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.5);
         z-index: -1;
+      }
+
+      /* Scale wrapper for shrinking everything except background */
+      .scale-wrapper {
+        transform: scale(0.8);
+        transform-origin: top center;
+        width: 100%;
       }
 
       a {
@@ -186,161 +191,166 @@
     </style>
   </head>
   <body>
-    <!-- HERO -->
-    <header class="hero">
-      <h1>Ryan Rookis</h1>
-      <p>Game Developer & Full Stack Programmer</p>
-      <p>Natural leader, fast learner, and confident individual.</p>
-      <p>Skilled with Unity, AI, SolidWorks, and Calculus.</p>
-      <p>Capable of teaching myself new skills to accomplish my goals.</p>
+    <!-- Wrap all content in scale-wrapper -->
+    <div class="scale-wrapper">
 
-      <div class="top-actions">
-        <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
-        <a
-          class="btn secondary"
-          href="https://github.com/uncrustable125"
-          target="_blank"
-          rel="noreferrer"
-          >GitHub</a
-        >
+      <!-- HERO -->
+      <header class="hero">
+        <h1>Ryan Rookis</h1>
+        <p>Game Developer & Full Stack Programmer</p>
+        <p>Natural leader, fast learner, and confident individual.</p>
+        <p>Skilled with Unity, AI, SolidWorks, and Calculus.</p>
+        <p>Capable of teaching myself new skills to accomplish my goals.</p>
+
+        <div class="top-actions">
+          <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
+          <a
+            class="btn secondary"
+            href="https://github.com/uncrustable125"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
+        </div>
+      </header>
+
+      <div class="container">
+        <!-- Projects -->
+        <div class="project">
+          <iframe
+            src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88"
+            allowfullscreen
+          ></iframe>
+          <h2>Card-Based Strategy Game</h2>
+          <p>
+            A brief Slay-the-Spire style deckbuilder focused on clearing waves of
+            enemies and building a deck. Features a deck system, turn-based battle
+            mechanics, rougelike deck building, and custom art.
+          </p>
+          <a
+            class="btn"
+            href="https://github.com/Uncrustable125/CardBattler"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="project">
+          <iframe
+            src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k"
+            allowfullscreen
+          ></iframe>
+          <h2>Name Recall Challenge</h2>
+          <p>
+            A memory-based game where users match faces and names. Professional
+            project for the NTL group’s NeuroCoach program. Features AI generated
+            art.
+          </p>
+          <a
+            class="btn"
+            href="https://ntlgroupinc.com/neurocoach/"
+            target="_blank"
+            >NTL NeuroCoach Homepage</a
+          >
+          <a
+            class="btn"
+            href="https://github.com/Uncrustable125/Name-Recall-Challenge"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="project">
+          <iframe
+            src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs"
+            allowfullscreen
+          ></iframe>
+          <h2>Farm Game</h2>
+          <p>
+            A farm game template for games similar to Stardew Valley. Shows off a
+            few systems including a tile-based crop system, an inventory system, a
+            dialog system, a time and date system, and a JSON save system. First
+            real Unity project; some art original.
+          </p>
+          <a
+            class="btn"
+            href="https://github.com/Uncrustable125/Farm-Game"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+
+        <div class="project">
+          <iframe
+            src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI"
+            allowfullscreen
+          ></iframe>
+          <h2>Unwinnable Tic-Tac-Toe</h2>
+          <p>Quick project I made with AI. You can’t win.</p>
+          <a
+            class="btn"
+            href="https://github.com/Uncrustable125/Tic-Tac-Toe"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+        <div class="project">
+          <h2>New Project</h2>
+          <p>a game about selling ramen to hungry people. WiP</p>
+          <a
+            class="btn"
+            href="https://github.com/Uncrustable125/Ramen-Shop"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+        <!-- About Me -->
+        <div class="project">
+          <h2>About Me</h2>
+          <p>
+            I am a deep thinker and a spiritual person. I like to be around people
+            and travel. I spend a lot of my free time hiking, playing video games,
+            and socializing. One thing that changed my life was my recovery from
+            drug and alcohol addiction. I'm currently 10 years sober. I currently
+            work as a property manager and developer. I want to break into coding
+            because it feels very natural to me.
+          </p>
+
+          <h2>Other Skills</h2>
+          <ul>
+            <li>
+              <strong>Programming:</strong> C, C#, C++, Python, HTML, CSS,
+              JavaScript, SolidWorks, Unity
+            </li>
+            <li><strong>Engineering Tools:</strong> Calculus, IT, Circuits</li>
+            <li>
+              <strong>Hardware Experience:</strong> Microcontrollers, Soldering,
+              3D Printing
+            </li>
+            <li>
+              <strong>Life Skills:</strong> Recovery and life coach,
+              Inter/Intra-personal skills, Communication Skills
+            </li>
+          </ul>
+
+          <h2>Education</h2>
+          <p>
+            I took courses at <strong>The University of Arizona</strong> and
+            <strong>Florida State University</strong>. Many of my skills are self
+            taught.
+          </p>
+
+          <h2>Work Experience</h2>
+          <p>
+            Midgrove Centere - Property Manager and Developer 2022 - 2026+
+            (current job)
+          </p>
+        </div>
       </div>
-    </header>
 
-    <div class="container">
-      <!-- Projects -->
-      <div class="project">
-        <iframe
-          src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88"
-          allowfullscreen
-        ></iframe>
-        <h2>Card-Based Strategy Game</h2>
-        <p>
-          A brief Slay-the-Spire style deckbuilder focused on clearing waves of
-          enemies and building a deck. Features a deck system, turn-based battle
-          mechanics, rougelike deck building, and custom art.
-        </p>
-        <a
-          class="btn"
-          href="https://github.com/Uncrustable125/CardBattler"
-          target="_blank"
-          >View on GitHub</a
-        >
-      </div>
+      <footer>© <span id="y"></span> Ryan Rookis • Vanilla HTML/CSS</footer>
 
-      <div class="project">
-        <iframe
-          src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k"
-          allowfullscreen
-        ></iframe>
-        <h2>Name Recall Challenge</h2>
-        <p>
-          A memory-based game where users match faces and names. Professional
-          project for the NTL group’s NeuroCoach program. Features AI generated
-          art.
-        </p>
-        <a
-          class="btn"
-          href="https://ntlgroupinc.com/neurocoach/"
-          target="_blank"
-          >NTL NeuroCoach Homepage</a
-        >
-        <a
-          class="btn"
-          href="https://github.com/Uncrustable125/Name-Recall-Challenge"
-          target="_blank"
-          >View on GitHub</a
-        >
-      </div>
-
-      <div class="project">
-        <iframe
-          src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs"
-          allowfullscreen
-        ></iframe>
-        <h2>Farm Game</h2>
-        <p>
-          A farm game template for games similar to Stardew Valley. Shows off a
-          few systems including a tile-based crop system, an inventory system, a
-          dialog system, a time and date system, and a JSON save system. First
-          real Unity project; some art original.
-        </p>
-        <a
-          class="btn"
-          href="https://github.com/Uncrustable125/Farm-Game"
-          target="_blank"
-          >View on GitHub</a
-        >
-      </div>
-
-      <div class="project">
-        <iframe
-          src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI"
-          allowfullscreen
-        ></iframe>
-        <h2>Unwinnable Tic-Tac-Toe</h2>
-        <p>Quick project I made with AI. You can’t win.</p>
-        <a
-          class="btn"
-          href="https://github.com/Uncrustable125/Tic-Tac-Toe"
-          target="_blank"
-          >View on GitHub</a
-        >
-      </div>
-      <div class="project">
-        <h2>New Project</h2>
-        <p>a game about selling ramen to hungry people. WiP</p>
-        <a
-          class="btn"
-          href="https://github.com/Uncrustable125/Ramen-Shop"
-          target="_blank"
-          >View on GitHub</a
-        >
-      </div>
-      <!-- About Me -->
-      <div class="project">
-        <h2>About Me</h2>
-        <p>
-          I am a deep thinker and a spiritual person. I like to be around people
-          and travel. I spend a lot of my free time hiking, playing video games,
-          and socializing. One thing that changed my life was my recovery from
-          drug and alcohol addiction. I'm currently 10 years sober. I currently
-          work as a property manager and developer. I want to break into coding
-          because it feels very natural to me.
-        </p>
-
-        <h2>Other Skills</h2>
-        <ul>
-          <li>
-            <strong>Programming:</strong> C, C#, C++, Python, HTML, CSS,
-            JavaScript, SolidWorks, Unity
-          </li>
-          <li><strong>Engineering Tools:</strong> Calculus, IT, Circuits</li>
-          <li>
-            <strong>Hardware Experience:</strong> Microcontrollers, Soldering,
-            3D Printing
-          </li>
-          <li>
-            <strong>Life Skills:</strong> Recovery and life coach,
-            Inter/Intra-personal skills, Communication Skills
-          </li>
-        </ul>
-
-        <h2>Education</h2>
-        <p>
-          I took courses at <strong>The University of Arizona</strong> and
-          <strong>Florida State University</strong>. Many of my skills are self
-          taught.
-        </p>
-
-        <h2>Work Experience</h2>
-        <p>
-          Midgrove Centere - Property Manager and Developer 2022 - 2026+
-          (current job)
-        </p>
-      </div>
-    </div>
-
-    <footer>© <span id="y"></span> Ryan Rookis • Vanilla HTML/CSS</footer>
+    </div> <!-- end scale-wrapper -->
 
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
