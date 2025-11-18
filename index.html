@@ -1,252 +1,347 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ryan Rookis — Game Dev & Full Stack Programmer</title>
-  <meta name="description" content="Portfolio of Ryan Rookis — Unity developer and programmer. Projects include a card-based strategy game, Name Recall Challenge (EEG), a farm sim, and an unwinnable tic-tac-toe." />
-  <meta name="robots" content="index, follow" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --accent: #2563eb;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --radius: 14px;
-      --shadow: 0 8px 30px rgba(0,0,0,.3);
-    }
-    *{box-sizing:border-box}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ryan Rookis — Game Dev & Full Stack Programmer</title>
+    <meta
+      name="description"
+      content="Portfolio of Ryan Rookis — Unity developer and programmer. Projects include a card-based strategy game, Name Recall Challenge (EEG), a farm sim, and an unwinnable tic-tac-toe."
+    />
+    <meta name="robots" content="index, follow" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --accent: #2563eb;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --radius: 14px;
+        --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      }
+      * {
+        box-sizing: border-box;
+      }
 
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        min-height: 100vh;
 
-      /* Full-page background image */
-      background: 
-        url('https://images.pexels.com/photos/6424585/pexels-photo-6424585.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1400&dpr=1') 
-        center/cover no-repeat fixed;
-    }
+        /* Full-page background image */
+        background: url("https://images.pexels.com/photos/6424585/pexels-photo-6424585.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1400&dpr=1")
+          center/cover no-repeat fixed;
+      }
 
-    /* Dark overlay */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: -1;
-    }
+      /* Dark overlay */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+      }
 
-    a{color:inherit; text-decoration:none}
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
 
-    /* HERO */
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh; /* full screen */
-      width: 100%;
-      text-align: center;
-      color: #fff;
-      padding: 0 16px;
-      background: transparent; /* removed background here */
-    }
+      /* HERO */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh; /* full screen */
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        padding: 0 16px;
+        background: transparent; /* removed background here */
+      }
 
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3rem); /* responsive size */
-      margin: 0 0 14px;
-      letter-spacing: -0.02em;
-      font-weight: 700; /* bold */
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7); /* subtle shadow for contrast */
-      color: #fff;
-    }
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem); /* responsive size */
+        margin: 0 0 14px;
+        letter-spacing: -0.02em;
+        font-weight: 700; /* bold */
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* subtle shadow for contrast */
+        color: #fff;
+      }
 
-    /* Paragraphs below heading */
-    .hero p {
-      max-width: 720px;
-      margin: 6px auto;
-      font-size: clamp(1.25rem, 2vw, 1.75rem); /* slightly smaller than heading */
-      line-height: 1.4; /* compact but readable */
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* subtle shadow for readability */
-      color: #fff;
-    }
+      /* Paragraphs below heading */
+      .hero p {
+        max-width: 720px;
+        margin: 6px auto;
+        font-size: clamp(
+          1.25rem,
+          2vw,
+          1.75rem
+        ); /* slightly smaller than heading */
+        line-height: 1.4; /* compact but readable */
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* subtle shadow for readability */
+        color: #fff;
+      }
 
-    .top-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
+      .top-actions {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
 
-    .btn {
-      display:inline-block;
-      background: var(--accent);
-      color:#fff;
-      padding:12px 20px;
-      border-radius: var(--radius);
-      font-weight:600;
-      text-decoration:none;
-      transition: transform .15s ease, filter .2s ease;
-    }
-    .btn:hover{ transform: translateY(-2px); filter: saturate(1.05) }
-    .btn.secondary {
-      background: rgba(255, 255, 255, 0.85);
-      color: #000;
-    }
+      .btn {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: var(--radius);
+        font-weight: 600;
+        text-decoration: none;
+        transition: transform 0.15s ease, filter 0.2s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        filter: saturate(1.05);
+      }
+      .btn.secondary {
+        background: rgba(255, 255, 255, 0.85);
+        color: #000;
+      }
 
-    /* Projects Section */
-    .project {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 60px 0;
-      padding: 40px 20px;
-      border-radius: 16px;
-      overflow: hidden;
-      color: #fff;
-      background: rgba(227, 227, 227, 0.7);
-      backdrop-filter: blur(6px);
-      box-shadow: var(--shadow);
-    }
+      /* Projects Section */
+      .project {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 60px 0;
+        padding: 40px 20px;
+        border-radius: 16px;
+        overflow: hidden;
+        color: #fff;
+        background: rgba(227, 227, 227, 0.7);
+        backdrop-filter: blur(6px);
+        box-shadow: var(--shadow);
+      }
 
-    .project iframe {
-      width: 100%;
-      height: 300px; 
-      max-height: 400px;
-      border: none;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
+      .project iframe {
+        width: 100%;
+        height: 300px;
+        max-height: 400px;
+        border: none;
+        border-radius: 12px;
+        margin-bottom: 20px;
+      }
 
-    .project h2 {
-      font-size: 2rem;
-      margin-bottom: 6px;
-      text-align: center;
-    }
+      .project h2 {
+        font-size: 2rem;
+        margin-bottom: 6px;
+        text-align: center;
+      }
 
-    .project p {
-      font-size: 1.2rem;
-      max-width: 900px;
-      text-align: center;
-      margin-bottom: 16px;
-    }
+      .project p {
+        font-size: 1.2rem;
+        max-width: 900px;
+        text-align: center;
+        margin-bottom: 16px;
+      }
 
-    /* Footer */
-    footer {
-      text-align:center;
-      font-size:.9rem;
-      color: var(--muted);
-      margin:40px 0 10px;
-    }
+      /* Footer */
+      footer {
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin: 40px 0 10px;
+      }
 
-@media (prefers-reduced-motion: no-preference){
-  .project { transition: box-shadow .25s ease; }
-  .project:hover { box-shadow: 0 12px 40px rgba(0,0,0,.35); }
-}
-  
+      @media (prefers-reduced-motion: no-preference) {
+        .project {
+          transition: box-shadow 0.25s ease;
+        }
+        .project:hover {
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <header class="hero">
+      <h1>Ryan Rookis</h1>
+      <p>Game Developer & Full Stack Programmer</p>
+      <p>Natural leader, fast learner, and confident individual.</p>
+      <p>Skilled with Unity, AI, SolidWorks, and Calculus.</p>
+      <p>Capable of teaching myself new skills to accomplish my goals.</p>
 
-  </style>
-</head>
-<body>
+      <div class="top-actions">
+        <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
+        <a
+          class="btn secondary"
+          href="https://github.com/uncrustable125"
+          target="_blank"
+          rel="noreferrer"
+          >GitHub</a
+        >
+      </div>
+    </header>
 
-  <!-- HERO -->
-  <header class="hero">
-    <h1>Ryan Rookis</h1>
-    <p>Game Developer & Full Stack Programmer</p>
-    <p>Natural leader, fast learner, and confident individual.</p>
-    <p>Skilled with Unity, AI, SolidWorks, and Calculus.</p>
-    <p>Capable of teaching myself new skills to accomplish my goals.</p>
+    <div class="container">
+      <!-- Projects -->
+      <div class="project">
+        <iframe
+          src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88"
+          allowfullscreen
+        ></iframe>
+        <h2>Card-Based Strategy Game</h2>
+        <p>
+          A brief Slay-the-Spire style deckbuilder focused on clearing waves of
+          enemies and building a deck. Features a deck system, turn-based battle
+          mechanics, rougelike deck building, and custom art.
+        </p>
+        <a
+          class="btn"
+          href="https://github.com/Uncrustable125/CardBattler"
+          target="_blank"
+          >View on GitHub</a
+        >
+      </div>
 
-    <div class="top-actions">
-      <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
-      <a class="btn secondary" href="https://github.com/uncrustable125" target="_blank" rel="noreferrer">GitHub</a>
+      <div class="project">
+        <iframe
+          src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k"
+          allowfullscreen
+        ></iframe>
+        <h2>Name Recall Challenge</h2>
+        <p>
+          A memory-based game where users match faces and names. Professional
+          project for the NTL group’s NeuroCoach program. Features AI generated
+          art.
+        </p>
+        <a
+          class="btn"
+          href="https://ntlgroupinc.com/neurocoach/"
+          target="_blank"
+          >NTL NeuroCoach Homepage</a
+        >
+        <a
+          class="btn"
+          href="https://github.com/Uncrustable125/Name-Recall-Challenge"
+          target="_blank"
+          >View on GitHub</a
+        >
+      </div>
+
+      <div class="project">
+        <iframe
+          src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs"
+          allowfullscreen
+        ></iframe>
+        <h2>Farm Game</h2>
+        <p>
+          A farm game template for games similar to Stardew Valley. Shows off a
+          few systems including a tile-based crop system, an inventory system, a
+          dialog system, a time and date system, and a JSON save system. First
+          real Unity project; some art original.
+        </p>
+        <a
+          class="btn"
+          href="https://github.com/Uncrustable125/Farm-Game"
+          target="_blank"
+          >View on GitHub</a
+        >
+      </div>
+
+      <div class="project">
+        <iframe
+          src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI"
+          allowfullscreen
+        ></iframe>
+        <h2>Unwinnable Tic-Tac-Toe</h2>
+        <p>Quick project I made with AI. You can’t win.</p>
+        <a
+          class="btn"
+          href="https://github.com/Uncrustable125/Tic-Tac-Toe"
+          target="_blank"
+          >View on GitHub</a
+        >
+      </div>
+      <div class="project">
+        <h2>New Project</h2>
+        <p>a game about selling ramen to hungry people. WiP</p>
+        <a
+          class="btn"
+          href="https://github.com/Uncrustable125/Ramen-Shop"
+          target="_blank"
+          >View on GitHub</a
+        >
+      </div>
+      <!-- About Me -->
+      <div class="project">
+        <h2>About Me</h2>
+        <p>
+          I am a deep thinker and a spiritual person. I like to be around people
+          and travel. I spend a lot of my free time hiking,
+          playing video games, and socializing. One thing that changed my life
+          was my recovery from drug and alcohol addiction. I'm currently 10
+          years sober. I currently work as a property manager and developer. I
+          want to break into coding because it feels very 
+          natural to me.
+        </p>
+
+        <h2>Other Skills</h2>
+        <ul>
+          <li>
+            <strong>Programming:</strong> C, C#, C++, Python, HTML, CSS,
+            JavaScript, SolidWorks, Unity
+          </li>
+          <li><strong>Engineering Tools:</strong> Calculus, IT, Circuits</li>
+          <li>
+            <strong>Hardware Experience:</strong> Microcontrollers, Soldering,
+            3D Printing
+          </li>
+          <li>
+            <strong>Life Skills:</strong> Recovery and life coach,
+            Inter/Intra-personal skills, Communication Skills
+          </li>
+        </ul>
+
+        <h2>Education</h2>
+        <p>
+          I took courses at <strong>The University of Arizona</strong> and <strong>Florida State
+          University</strong>. Many of my skills are self taught.
+        </p>
+
+        <h2>Work Experience</h2>
+        <p>
+          MidGrove LLC - Property Manager and Developer 2022 - 2026 (current
+          job)
+        </p>
+      </div>
     </div>
-  </header>
 
-  <div class="container">
+    <footer>© <span id="y"></span> Ryan Rookis • Vanilla HTML/CSS</footer>
 
-    <!-- Projects -->
-    <div class="project">
-      <iframe src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88" allowfullscreen></iframe>
-      <h2>Card-Based Strategy Game</h2>
-      <p>A brief Slay-the-Spire style deckbuilder focused on clearing waves of enemies and building a deck. Features a deck system, turn-based battle mechanics, rougelike deck building, and custom art.</p>
-      <a class="btn" href="https://github.com/Uncrustable125/CardBattler" target="_blank">View on GitHub</a>
-    </div>
-
-    <div class="project">
-      <iframe src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k" allowfullscreen></iframe>
-      <h2>Name Recall Challenge</h2>
-      <p>A memory-based game where users match faces and names. Professional project for the NTL group’s NeuroCoach program. Features AI generated art.</p>
-      <a class="btn" href="https://ntlgroupinc.com/neurocoach/" target="_blank">NTL NeuroCoach Homepage</a>
-      <a class="btn" href="https://github.com/Uncrustable125/Name-Recall-Challenge" target="_blank">View on GitHub</a>
-    </div>
-
-    <div class="project">
-      <iframe src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs" allowfullscreen></iframe>
-      <h2>Farm Game</h2>
-      <p>A farm game template for games similar to Stardew Valley. Shows off a few systems including a tile-based crop system, an inventory system, a dialog system, a time and date system, and a JSON save system. First real Unity project; some art original.</p>
-      <a class="btn" href="https://github.com/Uncrustable125/Farm-Game" target="_blank">View on GitHub</a>
-    </div>
-
-    <div class="project">
-      <iframe src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI" allowfullscreen></iframe>
-      <h2>Unwinnable Tic-Tac-Toe</h2>
-      <p>Quick project I made with AI. You can’t win.</p>
-      <a class="btn" href="https://github.com/Uncrustable125/Tic-Tac-Toe" target="_blank">View on GitHub</a>
-    </div>
-    <div class="project">
-      <h2>New Project</h2>
-      <p>a game about selling ramen to hungry people. WiP</p>
-      <a class="btn" href="https://github.com/Uncrustable125/Ramen-Shop" target="_blank">View on GitHub</a>
-    </div>
-    <!-- About Me -->
-    <div class="project">
-      <h2>About Me</h2>
-      <p>I am a deep thinker and a spiritual person. I like to be around people and travel. I spend a lot of my free time walking in the woods, playing video games, or socializing. One thing that changed my life was my recovery from drug and alcohol addiction. I'm currently 10 years sober. I currently work as a property manager and developer. I want to break into coding because I enjoy it very much and it feels natural to me.</p>
-    
-
-    
-      <h2>Other Skills</h2>
-      <ul>
-        <li><strong>Programming:</strong> C, C#, C++, Python, HTML, CSS, JavaScript, SolidWorks, Unity</li>
-        <li><strong>Engineering Tools:</strong> Calculus, IT, Circuits</li>
-        <li><strong>Hardware Experience:</strong> Microcontrollers, Soldering, 3D Printing</li>
-        <li><strong>Life Skills:</strong> Recovery and life coach, Inter/Intra-personal skills, Communication Skills</li>
-      </ul>
-    
-
-    
-      <h2>Education</h2>
-      <p>I took courses at The University of Arizona and Florida State University. Many of my skills are self taught.</p>
-    
-
-    
-      <h2>Work Experience</h2>
-      <p>MidGrove LLC - Property Manager and Developer  2022 - 2026 (current job)</p>
-    </div>
-
-  </div>
-
-  <footer>© <span id="y"></span> Ryan Rookis • Vanilla HTML/CSS</footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
-</body>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
