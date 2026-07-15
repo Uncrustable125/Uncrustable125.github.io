@@ -81,27 +81,75 @@
         background: transparent; /* removed background here */
       }
 
+      /* Distinctive hero card — darker glass with a glowing accent edge */
+      .hero-card {
+        position: relative;
+        max-width: 760px;
+        width: 100%;
+        padding: 48px 44px;
+        border-radius: 24px;
+        background: linear-gradient(
+          160deg,
+          rgba(17, 24, 39, 0.72),
+          rgba(30, 41, 59, 0.55)
+        );
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(96, 165, 250, 0.35);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45),
+          0 0 40px rgba(37, 99, 235, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      /* Accent bar along the top of the card */
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #2563eb, #60a5fa, #22d3ee);
+      }
+
       .hero h1 {
-        font-size: clamp(2rem, 4vw, 3rem); /* responsive size */
-        margin: 0 0 14px;
+        font-size: clamp(2.5rem, 5vw, 3.75rem); /* responsive size */
+        margin: 0 0 18px;
         letter-spacing: -0.02em;
-        font-weight: 700; /* bold */
-        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* subtle shadow for contrast */
-        color: #fff;
+        font-weight: 800; /* bold */
+        line-height: 1.1;
+        /* Gradient text for the name */
+        background: linear-gradient(90deg, #93c5fd, #ffffff 55%, #67e8f9);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #fff; /* fallback */
+      }
+
+      /* Thin divider under the name */
+      .hero-card .name-rule {
+        width: 64px;
+        height: 3px;
+        margin: 0 auto 20px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #2563eb, #22d3ee);
       }
 
       /* Paragraphs below heading */
       .hero p {
-        max-width: 720px;
-        margin: 6px auto; 
-        font-size: clamp(
-          1.25rem,
-          2vw,
-          1.75rem
-        ); /* slightly smaller than heading */
-        line-height: 1.4; /* compact but readable */
-        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* subtle shadow for readability */
+        max-width: 640px;
+        margin: 8px auto;
+        font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+        line-height: 1.5;
+        color: #cbd5e1; /* soft slate, reads well on the dark card */
+      }
+
+      /* First line (the title/role) gets emphasis */
+      .hero-card p:first-of-type {
         color: #fff;
+        font-weight: 600;
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        margin-bottom: 14px;
       }
 
       .top-actions {
@@ -179,6 +227,13 @@
         margin-bottom: 20px;
       }
 
+      /* Playable WebGL demo needs more height than a video embed */
+      .project iframe.game-embed {
+        height: 600px;
+        max-height: none;
+        background: #231f20;
+      }
+
       .project h2 {
         font-size: 2rem;
         margin-bottom: 6px;
@@ -190,6 +245,19 @@
         max-width: 900px;
         text-align: center;
         margin-bottom: 16px;
+      }
+
+      /* Small "playable" badge */
+      .badge {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 999px;
+        margin-bottom: 12px;
+        letter-spacing: 0.02em;
       }
 
       /* Footer */
@@ -216,26 +284,53 @@
 
       <!-- HERO -->
       <header class="hero">
-        <h1>Ryan Rookis</h1>
-        <p>Game Developer & Full Stack Programmer</p>
-        <p>Natural leader, fast learner, and confident individual.</p>
-        <p>Skilled with Unity, AI, SolidWorks, and Calculus.</p>
-        <p>Capable of teaching myself new skills to accomplish my goals.</p>
+        <div class="hero-card">
+          <h1>Ryan Rookis</h1>
+          <div class="name-rule"></div>
+          <p>Game Developer & Full Stack Programmer</p>
+          <p>Natural leader, fast learner, and confident individual.</p>
+          <p>Skilled with Unity, AI, SolidWorks, and Calculus.</p>
+          <p>Capable of teaching myself new skills to accomplish my goals.</p>
 
-        <div class="top-actions">
-          <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
-          <a
-            class="btn secondary"
-            href="https://github.com/uncrustable125"
-            target="_blank"
-            rel="noreferrer"
-            >GitHub</a
-          >
+          <div class="top-actions">
+            <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
+            <a
+              class="btn secondary"
+              href="https://github.com/uncrustable125"
+              target="_blank"
+              rel="noreferrer"
+              >GitHub</a
+            >
+          </div>
         </div>
       </header>
 
       <div class="container">
         <!-- Projects -->
+
+        <!-- Tower Defense — playable WebGL demo -->
+        <div class="project">
+          <span class="badge">▶ Playable Demo</span>
+          <iframe
+            class="game-embed"
+            src="tower-defense/index.html"
+            allowfullscreen
+          ></iframe>
+          <h2>Tower Defense</h2>
+          <p>
+            A playable isometric tower defense demo built in Unity and compiled
+            to WebGL. Place towers, manage resources, and hold back waves of
+            enemies — all running right in the browser. Click into the frame to
+            play.
+          </p>
+          <a
+            class="btn"
+            href="https://github.com/Uncrustable125/TowerDefence"
+            target="_blank"
+            >View on GitHub</a
+          >
+        </div>
+
         <div class="project">
           <iframe
             src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88"
