@@ -6,54 +6,60 @@
     <title>Ryan Rookis — Game Dev & Full Stack Programmer</title>
     <meta
       name="description"
-      content="Portfolio of Ryan Rookis — Unity developer and programmer. Projects include a card-based strategy game, Name Recall Challenge (EEG), a farm sim, and an unwinnable tic-tac-toe."
+      content="Portfolio of Ryan Rookis — Unity developer and programmer. Play and watch projects: a tower defense demo, a card-based strategy game, Name Recall Challenge, a farm sim, and more."
     />
     <meta name="robots" content="index, follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        --accent: #2563eb;
-        --text: #e5e7eb;
-        --muted: #9ca3af;
-        --radius: 14px;
-        --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        --void: #0b0d14;
+        --panel: rgba(19, 23, 34, 0.72);
+        --panel-2: rgba(28, 33, 48, 0.66);
+        --edge: rgba(96, 165, 250, 0.22);
+        --edge-strong: rgba(96, 165, 250, 0.55);
+        --accent: #3b82f6;
+        --accent-2: #22d3ee;
+        --gold: #f5b942;
+        --text: #e8ecf3;
+        --muted: #93a0b5;
+        --radius: 16px;
+        --display: "Space Grotesk", system-ui, sans-serif;
+        --body: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
       }
+
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial,
-          sans-serif;
+        font-family: var(--body);
         color: var(--text);
         line-height: 1.6;
-
-        /* Full-page background image */
         background: url("https://images.pexels.com/photos/6424585/pexels-photo-6424585.jpeg?auto=compress&cs=tinysrgb&w=2400&h=1400&dpr=1")
           center/cover no-repeat fixed;
       }
 
-      /* Dark overlay */
       body::before {
         content: "";
         position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(11, 13, 20, 0.82),
+          rgba(11, 13, 20, 0.92)
+        );
         z-index: -1;
-      }
-
-      /* Scale wrapper for shrinking everything except background */
-      .scale-wrapper {
-        transform: scale(0.8);
-        transform-origin: top center;
-        width: 100%;
       }
 
       a {
@@ -61,414 +67,586 @@
         text-decoration: none;
       }
 
-      .container {
-        max-width: 1200px;
+      .shell {
+        max-width: 1400px;
         margin: 0 auto;
-        padding: 40px 20px;
+        padding: 28px 24px 48px;
       }
 
-      /* HERO */
-      .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh; /* full screen */
-        width: 100%;
-        text-align: center;
-        color: #fff;
-        padding: 0 16px;
-        background: transparent; /* removed background here */
-      }
-
-      /* Distinctive hero card — darker glass with a glowing accent edge */
-      .hero-card {
+      /* ---------- TOP BAND (intro) ---------- */
+      .topband {
         position: relative;
-        max-width: 760px;
-        width: 100%;
-        padding: 48px 44px;
-        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+        padding: 26px 30px;
+        border-radius: 20px;
         background: linear-gradient(
           160deg,
-          rgba(17, 24, 39, 0.72),
-          rgba(30, 41, 59, 0.55)
+          rgba(17, 24, 39, 0.78),
+          rgba(30, 41, 59, 0.5)
         );
-        backdrop-filter: blur(14px);
-        border: 1px solid rgba(96, 165, 250, 0.35);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45),
-          0 0 40px rgba(37, 99, 235, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--edge);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45),
+          0 0 34px rgba(37, 99, 235, 0.16),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
         overflow: hidden;
       }
-
-      /* Accent bar along the top of the card */
-      .hero-card::before {
+      .topband::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #2563eb, #60a5fa, #22d3ee);
+        inset: 0 0 auto 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--gold));
       }
 
-      .hero h1 {
-        font-size: clamp(2.5rem, 5vw, 3.75rem); /* responsive size */
-        margin: 0 0 18px;
+      .brand h1 {
+        font-family: var(--display);
+        font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+        font-weight: 700;
         letter-spacing: -0.02em;
-        font-weight: 800; /* bold */
-        line-height: 1.1;
-        /* Gradient text for the name */
+        line-height: 1.05;
+        margin: 0 0 6px;
         background: linear-gradient(90deg, #93c5fd, #ffffff 55%, #67e8f9);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        color: #fff; /* fallback */
       }
-
-      /* Thin divider under the name */
-      .hero-card .name-rule {
-        width: 64px;
-        height: 3px;
-        margin: 0 auto 20px;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #2563eb, #22d3ee);
+      .brand .role {
+        font-family: var(--display);
+        font-weight: 500;
+        font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+        color: var(--accent-2);
+        letter-spacing: 0.01em;
+        margin: 0 0 4px;
       }
-
-      /* Paragraphs below heading */
-      .hero p {
-        max-width: 640px;
-        margin: 8px auto;
-        font-size: clamp(1.05rem, 1.6vw, 1.35rem);
-        line-height: 1.5;
-        color: #cbd5e1; /* soft slate, reads well on the dark card */
-      }
-
-      /* First line (the title/role) gets emphasis */
-      .hero-card p:first-of-type {
-        color: #fff;
-        font-weight: 600;
-        font-size: clamp(1.2rem, 2vw, 1.5rem);
-        margin-bottom: 14px;
+      .brand .tag {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin: 0;
+        max-width: 560px;
       }
 
       .top-actions {
         display: flex;
         gap: 10px;
-        justify-content: center;
-        align-items: center;
         flex-wrap: wrap;
-        margin-top: 20px;
       }
 
       .btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 11px 18px;
+        border-radius: 12px;
+        border: 1px solid transparent;
         background: var(--accent);
         color: #fff;
-        padding: 12px 20px;
-        border-radius: var(--radius);
-        font-weight: 600;
-        text-decoration: none;
-        transition: transform 0.15s ease, filter 0.2s ease;
+        cursor: pointer;
+        transition: transform 0.15s ease, filter 0.2s ease,
+          box-shadow 0.2s ease;
       }
       .btn:hover {
         transform: translateY(-2px);
-        filter: saturate(1.05);
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
       }
-      .btn.secondary {
-        background: rgba(255, 255, 255, 0.85);
-        color: #000;
+      .btn.ghost {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: var(--edge);
+        color: var(--text);
+      }
+      .btn.ghost:hover {
+        border-color: var(--edge-strong);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       }
 
+      /* ---------- LAYOUT: sidebar + launcher ---------- */
+      .layout {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 22px;
+        margin-top: 22px;
+        align-items: start;
+      }
 
-       .btn2 {
-        display: inline-block;
-        background: var(--accent);
-        color: #fff;
-        padding: 12px 20px;
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--edge);
         border-radius: var(--radius);
-        font-weight: 600;
-        text-decoration: none;
-        transition: transform 0.15s ease, filter 0.2s ease;
-        margin-top: 10px;
-      }
-      .btn2:hover {
-        transform: translateY(-2px);
-        filter: saturate(1.05);
-      }
-      .btn2.secondary {
-        background: rgba(255, 255, 255, 0.85);
-        color: #000;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
       }
 
-      /* Projects Section */
-      .project {
+      .eyebrow {
+        font-family: var(--display);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent-2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 14px;
+      }
+      .eyebrow::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, var(--edge-strong), transparent);
+      }
+
+      /* ---------- ABOUT SIDEBAR ---------- */
+      .sidebar {
+        padding: 24px 22px;
+        position: sticky;
+        top: 20px;
+      }
+      .sidebar h2 {
+        font-family: var(--display);
+        font-size: 1.15rem;
+        margin: 22px 0 8px;
+        font-weight: 600;
+      }
+      .sidebar h2.first {
+        margin-top: 0;
+      }
+      .sidebar p {
+        font-size: 0.92rem;
+        color: #c3ccda;
+        margin: 0 0 10px;
+      }
+      .sidebar ul {
+        margin: 0 0 6px;
+        padding-left: 18px;
+        font-size: 0.9rem;
+        color: #c3ccda;
+      }
+      .sidebar li {
+        margin-bottom: 6px;
+      }
+      .sidebar strong {
+        color: var(--text);
+      }
+      .sober-chip {
+        display: inline-block;
+        font-family: var(--display);
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--gold);
+        background: rgba(245, 185, 66, 0.1);
+        border: 1px solid rgba(245, 185, 66, 0.3);
+        padding: 4px 12px;
+        border-radius: 999px;
+        margin-bottom: 12px;
+      }
+
+      /* ---------- LAUNCHER (main) ---------- */
+      .launcher {
+        padding: 22px;
+      }
+
+      .viewport {
         position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #05060a;
+        border: 1px solid var(--edge-strong);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5),
+          0 0 46px rgba(34, 211, 238, 0.18),
+          inset 0 0 60px rgba(0, 0, 0, 0.6);
+      }
+      .viewport iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .viewport .placeholder {
+        position: absolute;
+        inset: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 60px 0;
-        padding: 40px 20px;
-        border-radius: 16px;
-        overflow: hidden;
-        color: #fff;
-        background: rgba(227, 227, 227, 0.7);
-        backdrop-filter: blur(6px);
-        box-shadow: var(--shadow);
-      }
-
-      .project iframe {
-        width: 100%;
-        height: 400px;
-        max-height: 500px;
-        border: none;
-        border-radius: 12px;
-        margin-bottom: 20px;
-      }
-
-      /* Playable WebGL demo needs more height than a video embed */
-      .project iframe.game-embed {
-        height: 600px;
-        max-height: none;
-        background: #231f20;
-      }
-
-      .project h2 {
-        font-size: 2rem;
-        margin-bottom: 6px;
+        gap: 10px;
         text-align: center;
+        padding: 24px;
+        color: var(--muted);
+      }
+      .viewport .placeholder .big {
+        font-family: var(--display);
+        font-size: 1.4rem;
+        color: var(--text);
       }
 
-      .project p {
-        font-size: 1.2rem;
-        max-width: 900px;
-        text-align: center;
-        margin-bottom: 16px;
+      .nowplaying {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin: 18px 2px 4px;
+        flex-wrap: wrap;
       }
-
-      /* Small "playable" badge */
-      .badge {
-        display: inline-block;
-        background: var(--accent);
-        color: #fff;
-        font-size: 0.85rem;
-        font-weight: 600;
-        padding: 4px 12px;
+      .nowplaying h3 {
+        font-family: var(--display);
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 6px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .nowplaying p {
+        margin: 0;
+        color: #c3ccda;
+        font-size: 0.98rem;
+        max-width: 720px;
+      }
+      .np-badge {
+        font-family: var(--display);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 4px 10px;
         border-radius: 999px;
-        margin-bottom: 12px;
-        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+      .np-badge.play {
+        color: #1a1204;
+        background: linear-gradient(90deg, var(--gold), #ffd479);
+      }
+      .np-badge.watch {
+        color: var(--accent-2);
+        background: rgba(34, 211, 238, 0.12);
+        border: 1px solid rgba(34, 211, 238, 0.4);
+      }
+      .np-badge.wip {
+        color: var(--muted);
+        background: rgba(148, 160, 181, 0.12);
+        border: 1px solid rgba(148, 160, 181, 0.35);
       }
 
-      /* Footer */
+      .selector {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .game-btn {
+        position: relative;
+        text-align: left;
+        font-family: var(--body);
+        color: var(--text);
+        background: var(--panel-2);
+        border: 1px solid var(--edge);
+        border-radius: 12px;
+        padding: 14px 14px 12px;
+        cursor: pointer;
+        transition: transform 0.14s ease, border-color 0.2s ease,
+          box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .game-btn:hover {
+        transform: translateY(-3px);
+        border-color: var(--edge-strong);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+      }
+      .game-btn[aria-current="true"] {
+        border-color: var(--accent-2);
+        background: rgba(34, 211, 238, 0.08);
+        box-shadow: 0 0 0 1px var(--accent-2),
+          0 12px 28px rgba(34, 211, 238, 0.2);
+      }
+      .game-btn .gt {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 0.98rem;
+        line-height: 1.25;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .game-btn .dot {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .game-btn .dot::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--muted);
+      }
+      .game-btn.play .dot {
+        color: var(--gold);
+      }
+      .game-btn.play .dot::before {
+        background: var(--gold);
+        box-shadow: 0 0 8px var(--gold);
+      }
+      .game-btn.watch .dot {
+        color: var(--accent-2);
+      }
+      .game-btn.watch .dot::before {
+        background: var(--accent-2);
+      }
+
       footer {
         text-align: center;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: var(--muted);
-        margin: 40px 0 10px;
+        margin-top: 36px;
       }
 
-      @media (prefers-reduced-motion: no-preference) {
-        .project {
-          transition: box-shadow 0.25s ease;
+      .btn:focus-visible,
+      .game-btn:focus-visible,
+      a:focus-visible {
+        outline: 2px solid var(--accent-2);
+        outline-offset: 3px;
+      }
+
+      /* ---------- Responsive ---------- */
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: 1fr;
         }
-        .project:hover {
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        .sidebar {
+          position: static;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Wrap all content in scale-wrapper -->
-    <div class="scale-wrapper">
-
-      <!-- HERO -->
-      <header class="hero">
-        <div class="hero-card">
+    <div class="shell">
+      <!-- ---------- TOP BAND / INTRO ---------- -->
+      <header class="topband">
+        <div class="brand">
           <h1>Ryan Rookis</h1>
-          <div class="name-rule"></div>
-          <p>Game Developer & Full Stack Programmer</p>
-          <p>Natural leader, fast learner, and confident individual.</p>
-          <p>Skilled with Unity, AI, SolidWorks, and Calculus.</p>
-          <p>Capable of teaching myself new skills to accomplish my goals.</p>
-
-          <div class="top-actions">
-            <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
-            <a
-              class="btn secondary"
-              href="https://github.com/uncrustable125"
-              target="_blank"
-              rel="noreferrer"
-              >GitHub</a
-            >
-          </div>
+          <p class="role">Game Developer &amp; Full Stack Programmer</p>
+          <p class="tag">
+            Natural leader and fast learner. Skilled with Unity, AI, SolidWorks,
+            and Calculus — and I teach myself whatever a goal requires.
+          </p>
+        </div>
+        <div class="top-actions">
+          <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
+          <a
+            class="btn ghost"
+            href="https://github.com/uncrustable125"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub</a
+          >
         </div>
       </header>
 
-      <div class="container">
-        <!-- Projects -->
+      <div class="layout">
+        <!-- ---------- ABOUT SIDEBAR ---------- -->
+        <aside class="card sidebar">
+          <p class="eyebrow">About Me</p>
 
-        <!-- Tower Defense — playable WebGL demo -->
-        <div class="project">
-          <span class="badge">▶ Playable Demo</span>
-          <iframe
-            class="game-embed"
-            src="tower-defense/index.html"
-            allowfullscreen
-          ></iframe>
-          <h2>Tower Defense</h2>
+          <span class="sober-chip">10 years sober</span>
           <p>
-            A playable isometric tower defense demo built in Unity and compiled
-            to WebGL. Place towers, manage resources, and hold back waves of
-            enemies — all running right in the browser. Click into the frame to
-            play.
-          </p>
-          <a
-            class="btn"
-            href="https://github.com/Uncrustable125/TowerDefence"
-            target="_blank"
-            >View on GitHub</a
-          >
-        </div>
-
-        <div class="project">
-          <iframe
-            src="https://www.youtube.com/embed/lk1gdjNjQ88?mute=0&loop=1&playlist=lk1gdjNjQ88"
-            allowfullscreen
-          ></iframe>
-          <h2>Card-Based Strategy Game</h2>
-          <p>
-            A brief Slay-the-Spire style deckbuilder focused on clearing waves of
-            enemies and building a deck. Features a deck system, turn-based battle
-            mechanics, rougelike deck building, and custom art.
-          </p>
-          <a
-            class="btn"
-            href="https://github.com/Uncrustable125/CardBattler"
-            target="_blank"
-            >View on GitHub</a
-          >
-        </div>
-
-        <div class="project">
-          <iframe
-            src="https://www.youtube.com/embed/_eDWl9PTm7k?mute=0&loop=1&playlist=_eDWl9PTm7k"
-            allowfullscreen
-          ></iframe>
-          <h2>Name Recall Challenge</h2>
-          <p>
-            A memory-based game where users match faces and names. Professional
-            project for the NTL group’s NeuroCoach program. Features AI generated
-            art.
-          </p>
-          <a
-            class="btn"
-            href="https://ntlgroupinc.com/neurocoach/"
-            target="_blank"
-            >NTL NeuroCoach Homepage</a
-          >
-          <a
-            class="btn2"
-            href="https://github.com/Uncrustable125/Name-Recall-Challenge"
-            target="_blank"
-            >View on GitHub</a
-          >
-        </div>
-
-        <div class="project">
-          <iframe
-            src="https://www.youtube.com/embed/UWodgMyIYIs?mute=0&loop=1&playlist=UWodgMyIYIs"
-            allowfullscreen
-          ></iframe>
-          <h2>Farm Game</h2>
-          <p>
-            A farm game template for games similar to Stardew Valley. Shows off a
-            few systems including a tile-based crop system, an inventory system, a
-            dialog system, a time and date system, and a JSON save system. First
-            real Unity project; some art original.
-          </p>
-          <a
-            class="btn"
-            href="https://github.com/Uncrustable125/Farm-Game"
-            target="_blank"
-            >View on GitHub</a
-          >
-        </div>
-
-        <div class="project">
-          <iframe
-            src="https://www.youtube.com/embed/2hGbSUb_NqI?mute=0&loop=1&playlist=2hGbSUb_NqI"
-            allowfullscreen
-          ></iframe>
-          <h2>Unwinnable Tic-Tac-Toe</h2>
-          <p>Quick project I made with AI. You can’t win.</p>
-          <a
-            class="btn"
-            href="https://github.com/Uncrustable125/Tic-Tac-Toe"
-            target="_blank"
-            >View on GitHub</a
-          >
-        </div>
-        <div class="project">
-          <h2>New Project</h2>
-          <p>a game about selling ramen to hungry people. WiP</p>
-          <a
-            class="btn"
-            href="https://github.com/Uncrustable125/Ramen-Shop"
-            target="_blank"
-            >View on GitHub</a
-          >
-        </div>
-        <!-- About Me -->
-        <div class="project">
-          <h2>About Me</h2>
-          <p>
-            I am a deep thinker and a spiritual person. I like to be around people
-            and travel. I spend a lot of my free time hiking, playing video games,
-            and socializing. One thing that changed my life was my recovery from
-            drug and alcohol addiction. I'm currently 10 years sober. I currently
-            work as a property manager and developer. I want to break into coding
-            because it feels very natural to me.
+            I'm a deep thinker and a spiritual person who likes being around
+            people and traveling. My free time goes to hiking, video games, and
+            socializing. Recovering from addiction changed my life, and I'm
+            breaking into coding because it feels natural to me. I currently work
+            as a property manager and developer.
           </p>
 
-          <h2>Other Skills</h2>
+          <h2>Skills</h2>
           <ul>
             <li>
               <strong>Programming:</strong> C, C#, C++, Python, HTML, CSS,
               JavaScript, SolidWorks, Unity
             </li>
-            <li><strong>Engineering Tools:</strong> Calculus, IT, Circuits</li>
+            <li><strong>Engineering:</strong> Calculus, IT, Circuits</li>
             <li>
-              <strong>Hardware Experience:</strong> Microcontrollers, Soldering,
-              3D Printing
+              <strong>Hardware:</strong> Microcontrollers, Soldering, 3D Printing
             </li>
             <li>
-              <strong>Life Skills:</strong> Recovery and life coach,
-              Inter/Intra-personal skills, Communication Skills
+              <strong>Life Skills:</strong> Recovery &amp; life coaching,
+              interpersonal &amp; communication skills
             </li>
           </ul>
 
           <h2>Education</h2>
           <p>
-            I took courses at <strong>The University of Arizona</strong> and
-            <strong>Florida State University</strong>. Many of my skills are self
-            taught.
+            Coursework at <strong>The University of Arizona</strong> and
+            <strong>Florida State University</strong>. Many skills are
+            self-taught.
           </p>
 
-          <h2>Work Experience</h2>
+          <h2>Work</h2>
           <p>
-            Midgrove Centere - Property Manager and Developer 2022 - 2026+
-            (current job)
+            <strong>Midgrove Center</strong> — Property Manager &amp; Developer,
+            2022–present.
           </p>
-        </div>
+        </aside>
+
+        <!-- ---------- LAUNCHER ---------- -->
+        <main class="card launcher">
+          <p class="eyebrow">Play / Watch</p>
+
+          <div class="viewport" id="viewport"><!-- injected --></div>
+
+          <div class="nowplaying">
+            <div>
+              <h3 id="np-title">
+                <span id="np-name"></span>
+                <span class="np-badge" id="np-badge"></span>
+              </h3>
+              <p id="np-desc"></p>
+            </div>
+            <a class="btn ghost" id="np-repo" target="_blank" rel="noreferrer"
+              >View on GitHub</a
+            >
+          </div>
+
+          <div class="selector" id="selector"><!-- injected --></div>
+        </main>
       </div>
 
-      <footer>© <span id="y"></span> Ryan Rookis • Vanilla HTML/CSS</footer>
-
-    </div> <!-- end scale-wrapper -->
+      <footer>© <span id="y"></span> Ryan Rookis • Built with vanilla HTML/CSS/JS</footer>
+    </div>
 
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
+
+      // --- Game library ---------------------------------------------------
+      const games = [
+        {
+          id: "tower-defense",
+          name: "Tower Defense",
+          type: "play",
+          src: "tower-defense/index.html",
+          desc:
+            "A playable isometric tower defense demo built in Unity and compiled to WebGL. Place towers, manage resources, and hold back waves of enemies — right in the browser.",
+          repo: "https://github.com/Uncrustable125/TowerDefence",
+        },
+        {
+          id: "card-battler",
+          name: "Card-Based Strategy Game",
+          type: "watch",
+          src: "https://www.youtube.com/embed/lk1gdjNjQ88",
+          desc:
+            "A brief Slay-the-Spire style deckbuilder: clear waves of enemies while building your deck. Turn-based battles, roguelike deckbuilding, and custom art.",
+          repo: "https://github.com/Uncrustable125/CardBattler",
+        },
+        {
+          id: "name-recall",
+          name: "Name Recall Challenge",
+          type: "watch",
+          src: "https://www.youtube.com/embed/_eDWl9PTm7k",
+          desc:
+            "A memory game matching faces and names — a professional project for the NTL Group's NeuroCoach program, featuring AI-generated art.",
+          repo: "https://github.com/Uncrustable125/Name-Recall-Challenge",
+        },
+        {
+          id: "farm-game",
+          name: "Farm Game",
+          type: "watch",
+          src: "https://www.youtube.com/embed/UWodgMyIYIs",
+          desc:
+            "A Stardew-style farm template showing off tile-based crops, inventory, dialog, a time/date system, and JSON saves. My first real Unity project — some art original.",
+          repo: "https://github.com/Uncrustable125/Farm-Game",
+        },
+        {
+          id: "tic-tac-toe",
+          name: "Unwinnable Tic-Tac-Toe",
+          type: "watch",
+          src: "https://www.youtube.com/embed/2hGbSUb_NqI",
+          desc: "A quick project made with AI. You can't win.",
+          repo: "https://github.com/Uncrustable125/Tic-Tac-Toe",
+        },
+        {
+          id: "ramen-shop",
+          name: "Ramen Shop",
+          type: "wip",
+          src: null,
+          desc:
+            "A game about selling ramen to hungry people. Work in progress — check the repo for updates.",
+          repo: "https://github.com/Uncrustable125/Ramen-Shop",
+        },
+      ];
+
+      const badgeText = { play: "Playable", watch: "Video", wip: "In Progress" };
+
+      const viewport = document.getElementById("viewport");
+      const npName = document.getElementById("np-name");
+      const npBadge = document.getElementById("np-badge");
+      const npDesc = document.getElementById("np-desc");
+      const npRepo = document.getElementById("np-repo");
+      const selector = document.getElementById("selector");
+
+      function loadGame(id) {
+        const g = games.find((x) => x.id === id);
+        if (!g) return;
+
+        if (g.type === "wip" || !g.src) {
+          viewport.innerHTML =
+            '<div class="placeholder"><span class="big">Coming soon</span><span>This project is still in development.</span></div>';
+        } else {
+          const frame = document.createElement("iframe");
+          frame.src = g.src;
+          frame.allow =
+            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen";
+          frame.allowFullscreen = true;
+          frame.title = g.name;
+          viewport.innerHTML = "";
+          viewport.appendChild(frame);
+        }
+
+        npName.textContent = g.name;
+        npBadge.textContent = badgeText[g.type];
+        npBadge.className = "np-badge " + g.type;
+        npDesc.textContent = g.desc;
+        npRepo.href = g.repo;
+
+        selector.querySelectorAll(".game-btn").forEach((b) => {
+          b.setAttribute("aria-current", b.dataset.id === id ? "true" : "false");
+        });
+      }
+
+      games.forEach((g, i) => {
+        const b = document.createElement("button");
+        b.className = "game-btn " + g.type;
+        b.dataset.id = g.id;
+        b.setAttribute("aria-current", i === 0 ? "true" : "false");
+        b.innerHTML =
+          '<span class="gt">' +
+          g.name +
+          '</span><span class="dot">' +
+          badgeText[g.type] +
+          "</span>";
+        b.addEventListener("click", () => loadGame(g.id));
+        selector.appendChild(b);
+      });
+
+      loadGame(games[0].id);
     </script>
   </body>
 </html>
