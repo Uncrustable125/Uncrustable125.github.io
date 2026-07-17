@@ -28,25 +28,7 @@
         display: block;
         background: transparent;
       }
-
-      /* Hide the footer bar but keep a floating fullscreen button */
-      #unity-footer { display: none; }
-
-      #unity-fullscreen-button {
-        display: block;
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        width: 38px;
-        height: 38px;
-        cursor: pointer;
-        z-index: 10;
-        background: url('TemplateData/fullscreen-button.png') no-repeat center;
-        background-size: contain;
-        opacity: 0.7;
-        transition: opacity 0.15s;
-      }
-      #unity-fullscreen-button:hover { opacity: 1; }
+      #unity-footer { display: none; } /* hide default footer bar for a clean embed */
     </style>
   </head>
   <body>
@@ -59,7 +41,11 @@
         </div>
       </div>
       <div id="unity-warning"> </div>
-      <div id="unity-fullscreen-button"></div>
+      <div id="unity-footer">
+        <div id="unity-logo-title-footer"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">TowerDefence</div>
+      </div>
     </div>
     <script>
       var canvas = document.querySelector("#unity-canvas");
