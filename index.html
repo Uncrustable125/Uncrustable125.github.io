@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ryan Rookis — Game Dev & Full Stack Programmer</title>
+    <title>Ryan Rookis — Software Engineer & Game Developer</title>
     <meta
       name="description"
-      content="Portfolio of Ryan Rookis — Unity developer and programmer. Play and watch projects: a tower defense demo, a card-based strategy game, Name Recall Challenge, a farm sim, and more."
+      content="Portfolio of Ryan Rookis — software engineering student at ASU and Unity developer. Playable, shipped projects: a WebGL tower defense demo, a card-based deckbuilder, a farm sim, and more."
     />
     <meta name="robots" content="index, follow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -311,6 +311,25 @@
         font-size: 0.98rem;
         max-width: 720px;
       }
+      .np-sub {
+        font-family: var(--display) !important;
+        font-size: 0.78rem !important;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent-2) !important;
+        margin: 0 0 10px !important;
+      }
+      #np-bullets {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: #c3ccda;
+        font-size: 0.95rem;
+        max-width: 720px;
+      }
+      #np-bullets li {
+        margin-bottom: 6px;
+      }
       .np-badge {
         font-family: var(--display);
         font-size: 0.7rem;
@@ -445,10 +464,10 @@
       <header class="topband">
         <div class="brand">
           <h1>Ryan Rookis</h1>
-          <p class="role">Game Developer &amp; Full Stack Programmer</p>
+          <p class="role">Software Engineer &amp; Game Developer</p>
           <p class="tag">
-            Natural leader and fast learner. Skilled with Unity, AI, SolidWorks,
-            and Calculus — and I teach myself whatever a goal requires.
+            I build games and tools in Unity and C#. Studying Software
+            Engineering at ASU; open to internships and entry-level roles.
           </p>
         </div>
         <div class="top-actions">
@@ -468,43 +487,31 @@
         <aside class="card sidebar">
           <p class="eyebrow">About Me</p>
 
-          <span class="sober-chip">10 years sober</span>
           <p>
-            I'm a deep thinker and a spiritual person who likes being around
-            people and traveling. My free time goes to hiking, video games, and
-            socializing. Recovering from addiction changed my life, and I'm
-            breaking into coding because it feels natural to me. I currently work
-            as a property manager and developer.
+            Hey, I'm Ryan. I build games and tools in Unity and C#. When I'm not programming, I'm usually
+            hiking, playing DotA, or socializing with friends. I also love traveling.
+			I'm studying Software Engineering at ASU right now.
+			All of my Unity work is self-taught; I learn by doing.
           </p>
 
           <h2>Skills</h2>
           <ul>
             <li>
-              <strong>Programming:</strong> C, C#, C++, Python, HTML, CSS,
-              JavaScript, SolidWorks, Unity
+              <strong>Languages:</strong> C#, C++, C, Python, Java, JavaScript,
+              HTML/CSS
             </li>
-            <li><strong>Engineering:</strong> Calculus, IT, Circuits</li>
-            <li>
-              <strong>Hardware:</strong> Microcontrollers, Soldering, 3D Printing
-            </li>
-            <li>
-              <strong>Life Skills:</strong> Recovery &amp; life coaching,
-              interpersonal &amp; communication skills
-            </li>
+            <li><strong>Tools:</strong> Unity, Git &amp; GitHub, AI skills</li>
           </ul>
 
           <h2>Education</h2>
           <p>
-            Coursework at <strong>The University of Arizona</strong> and
-            <strong>Florida State University</strong>. Many skills are
-            self-taught.
+            <strong>B.S. Software Engineering</strong> — Arizona State University
+            <em>(in progress)</em>. Previously studied at the University of
+            Arizona and Florida State University.
           </p>
 
-          <h2>Work</h2>
-          <p>
-            <strong>Midgrove Center</strong> — Property Manager &amp; Developer,
-            2022–present.
-          </p>
+          <h2>Currently Into</h2>
+          <p>Home made cookies and hand cut fries, club work, and reading Anthony De Mello .</p>
         </aside>
 
         <!-- ---------- LAUNCHER ---------- -->
@@ -519,7 +526,9 @@
                 <span id="np-name"></span>
                 <span class="np-badge" id="np-badge"></span>
               </h3>
+              <p class="np-sub" id="np-sub"></p>
               <p id="np-desc"></p>
+              <ul id="np-bullets"></ul>
             </div>
             <a class="btn ghost" id="np-repo" target="_blank" rel="noreferrer"
               >View on GitHub</a
@@ -543,8 +552,16 @@
           name: "Tower Defense",
           type: "play",
           src: "tower-defense/index.html",
+          subtitle: "WebGL · Unity · Tower Defense",
           desc:
-            "A playable isometric tower defense demo built in Unity and compiled to WebGL. Place towers, manage resources, and hold back waves of enemies — right in the browser.",
+            "An isometric tower defense built in Unity and compiled to WebGL — build your base, manage your towers, and hold back waves of enemies until the next level.",
+			"Directions - Press play button to start waves. Press auto butto to auto start the stages. Press the play button again to fast forward.",
+          bullets: [
+            "Five tower types (Tower, Railgun, Ice, Buff, Bomb), each with its own behavior and cost",
+            "Grid-based tower placement with a gold economy and health points",
+            "Wave manager that spawns enemy waves along a spline-based path",
+            "Custom shop UI buttons and HUD",
+          ],
           repo: "https://github.com/Uncrustable125/TowerDefence",
         },
         {
@@ -552,8 +569,15 @@
           name: "Card-Based Strategy Game",
           type: "watch",
           src: "https://www.youtube.com/embed/lk1gdjNjQ88",
+          subtitle: "Unity · Roguelike Deckbuilder · Video",
           desc:
-            "A brief Slay-the-Spire style deckbuilder: clear waves of enemies while building your deck. Turn-based battles, roguelike deckbuilding, and custom art.",
+            "A Slay-the-Spire–style deckbuilder: clear waves of enemies while building your deck through turn-based battles.",
+          bullets: [
+            "Turn-based combat driven by card-based attacks and defense",
+            "Roguelike deckbuilding — draft and improve your deck run to run",
+            "Efficient deck shuffling and drawing",
+            "Custom art and UI",
+          ],
           repo: "https://github.com/Uncrustable125/CardBattler",
         },
         {
@@ -561,8 +585,16 @@
           name: "Name Recall Challenge",
           type: "watch",
           src: "https://www.youtube.com/embed/_eDWl9PTm7k",
+          subtitle: "Client Project · Unity · Video",
           desc:
-            "A memory game matching faces and names — a professional project for the NTL Group's NeuroCoach program, featuring AI-generated art.",
+            "A memory game matching faces to names and names to faces, built as a professional project for NTL Group's NeuroCoach program.",
+          bullets: [
+            "Delivered as a paid, client-facing project for the NeuroCoach program",
+            "Custom UI buttons for intuitive game flow",
+			"Distraction task inbetween to challenge the memory of the player",
+			"Scaleable difficulty level and customizeable options",
+            "AI-generated art for the character portraits",
+          ],
           repo: "https://github.com/Uncrustable125/Name-Recall-Challenge",
         },
         {
@@ -570,8 +602,15 @@
           name: "Farm Game",
           type: "watch",
           src: "https://www.youtube.com/embed/UWodgMyIYIs",
+          subtitle: "Unity · Farm Sim · Video",
           desc:
-            "A Stardew-style farm template showing off tile-based crops, inventory, dialog, a time/date system, and JSON saves. My first real Unity project — some art original.",
+            "A Stardew-style farm sim template and my first real Unity project.",
+          bullets: [
+            "Tile-based farming — plant, grow, and harvest crops on a grid",
+            "Inventory system and NPC dialog",
+            "In-game time and date cycle",
+            "Save/load using JSON",
+          ],
           repo: "https://github.com/Uncrustable125/Farm-Game",
         },
         {
@@ -579,17 +618,25 @@
           name: "Unwinnable Tic-Tac-Toe",
           type: "watch",
           src: "https://www.youtube.com/embed/2hGbSUb_NqI",
-          desc: "A quick project made with AI. You can't win.",
+          subtitle: "Web · AI-Assisted · Video",
+          desc: "A small, unbeatable tic-tac-toe game — you can't win.",
+          bullets: [
+            "AI opponent that plays perfectly and never loses",
+          ],
           repo: "https://github.com/Uncrustable125/Tic-Tac-Toe",
         },
         {
-          id: "ramen-shop",
-          name: "Ramen Shop",
+          id: "merge-game",
+          name: "Merge Game",
           type: "wip",
           src: null,
+          subtitle: "Unity · Merge Game",
           desc:
-            "A game about selling ramen to hungry people. Work in progress — check the repo for updates.",
-          repo: "https://github.com/Uncrustable125/Ramen-Shop",
+            "A merge game — combine matching items to create higher tiers.",
+          bullets: [
+            "Work in progress — follow the repo for updates",
+          ],
+          repo: "https://github.com/Uncrustable125/Merge-Game",
         },
       ];
 
@@ -598,7 +645,9 @@
       const viewport = document.getElementById("viewport");
       const npName = document.getElementById("np-name");
       const npBadge = document.getElementById("np-badge");
+      const npSub = document.getElementById("np-sub");
       const npDesc = document.getElementById("np-desc");
+      const npBullets = document.getElementById("np-bullets");
       const npRepo = document.getElementById("np-repo");
       const selector = document.getElementById("selector");
 
@@ -623,7 +672,14 @@
         npName.textContent = g.name;
         npBadge.textContent = badgeText[g.type];
         npBadge.className = "np-badge " + g.type;
+        npSub.textContent = g.subtitle || "";
         npDesc.textContent = g.desc;
+        npBullets.innerHTML = (g.bullets || [])
+          .map((b) => "<li></li>")
+          .join("");
+        (g.bullets || []).forEach((b, i) => {
+          npBullets.children[i].textContent = b;
+        });
         npRepo.href = g.repo;
 
         selector.querySelectorAll(".game-btn").forEach((b) => {
