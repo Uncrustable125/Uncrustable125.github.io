@@ -320,6 +320,9 @@
         color: var(--accent-2) !important;
         margin: 0 0 10px !important;
       }
+      #np-directions {
+        margin-top: 12px;
+      }
       #np-bullets {
         margin: 12px 0 0;
         padding-left: 18px;
@@ -528,6 +531,7 @@
               </h3>
               <p class="np-sub" id="np-sub"></p>
               <p id="np-desc"></p>
+              <p id="np-directions"></p>
               <ul id="np-bullets"></ul>
             </div>
             <a class="btn ghost" id="np-repo" target="_blank" rel="noreferrer"
@@ -555,7 +559,8 @@
           subtitle: "WebGL · Unity · Tower Defense",
           desc:
             "An isometric tower defense built in Unity and compiled to WebGL — build your base, manage your towers, and hold back waves of enemies until the next level.",
-			"Directions - Press play button to start waves. Press auto butto to auto start the stages. Press the play button again to fast forward.",
+          directions:
+            "Directions: press the play button to start waves, press auto to auto-start the stages, and press play again to fast-forward.",
           bullets: [
             "Five tower types (Tower, Railgun, Ice, Buff, Bomb), each with its own behavior and cost",
             "Grid-based tower placement with a gold economy and health points",
@@ -591,8 +596,8 @@
           bullets: [
             "Delivered as a paid, client-facing project for the NeuroCoach program",
             "Custom UI buttons for intuitive game flow",
-			"Distraction task inbetween to challenge the memory of the player",
-			"Scaleable difficulty level and customizeable options",
+            "Distraction task in between to challenge the player's memory",
+            "Scalable difficulty and customizable options",
             "AI-generated art for the character portraits",
           ],
           repo: "https://github.com/Uncrustable125/Name-Recall-Challenge",
@@ -647,6 +652,7 @@
       const npBadge = document.getElementById("np-badge");
       const npSub = document.getElementById("np-sub");
       const npDesc = document.getElementById("np-desc");
+      const npDirections = document.getElementById("np-directions");
       const npBullets = document.getElementById("np-bullets");
       const npRepo = document.getElementById("np-repo");
       const selector = document.getElementById("selector");
@@ -674,6 +680,8 @@
         npBadge.className = "np-badge " + g.type;
         npSub.textContent = g.subtitle || "";
         npDesc.textContent = g.desc;
+        npDirections.textContent = g.directions || "";
+        npDirections.style.display = g.directions ? "block" : "none";
         npBullets.innerHTML = (g.bullets || [])
           .map((b) => "<li></li>")
           .join("");
