@@ -9,6 +9,24 @@
       content="Portfolio of Ryan Rookis — software engineering student at ASU and Unity developer. Playable, shipped projects: a WebGL tower defense demo, a card-based deckbuilder, a farm sim, and more."
     />
     <meta name="robots" content="index, follow" />
+
+    <!-- Social / link previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://uncrustable125.github.io/" />
+    <meta property="og:title" content="Ryan Rookis — Software Engineer & Game Developer" />
+    <meta
+      property="og:description"
+      content="Unity and C# developer. Playable WebGL tower defense, a roguelike deckbuilder, a farm sim, and a shipped client project."
+    />
+    <meta property="og:image" content="https://uncrustable125.github.io/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Inline SVG favicon: no extra file needed -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0d14'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='19' font-weight='bold' fill='%2322d3ee' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -233,18 +251,6 @@
       .sidebar strong {
         color: var(--text);
       }
-      .sober-chip {
-        display: inline-block;
-        font-family: var(--display);
-        font-size: 0.78rem;
-        font-weight: 600;
-        color: var(--gold);
-        background: rgba(245, 185, 66, 0.1);
-        border: 1px solid rgba(245, 185, 66, 0.3);
-        padding: 4px 12px;
-        border-radius: 999px;
-        margin-bottom: 12px;
-      }
 
       /* ---------- LAUNCHER (main) ---------- */
       .launcher {
@@ -262,6 +268,10 @@
         box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5),
           0 0 46px rgba(34, 211, 238, 0.18),
           inset 0 0 60px rgba(0, 0, 0, 0.6);
+      }
+      .viewport:focus-visible {
+        outline: 2px solid var(--accent-2);
+        outline-offset: 3px;
       }
       .viewport iframe {
         position: absolute;
@@ -286,6 +296,13 @@
         font-family: var(--display);
         font-size: 1.4rem;
         color: var(--text);
+      }
+      .viewport .placeholder .note {
+        font-size: 0.85rem;
+        max-width: 380px;
+      }
+      .viewport .placeholder .btn {
+        margin-top: 8px;
       }
 
       .nowplaying {
@@ -475,6 +492,8 @@
         </div>
         <div class="top-actions">
           <a class="btn" href="mailto:ryanrookis@gmail.com">Contact Me</a>
+          <!-- Drop resume.pdf in the repo root for this to work -->
+          <a class="btn ghost" href="resume.pdf" target="_blank" rel="noreferrer">Resume</a>
           <a
             class="btn ghost"
             href="https://github.com/uncrustable125"
@@ -493,8 +512,8 @@
           <p>
             I'm Ryan. I build games and tools in Unity and C#. When I'm not programming, I'm usually
             hiking, cooking, or hanging out with friends. I also love traveling and video games.
-			I'm studying Software Engineering at ASU right now.
-			All of my Unity work is self-taught; I learn by doing.
+            I'm studying Software Engineering at ASU right now.
+            All of my Unity work is self-taught; I learn by doing.
           </p>
 
           <h2>Skills</h2>
@@ -514,16 +533,16 @@
           </p>
 
           <h2>Games I like</h2>
-          <p>DotA, Zelda, DOS2, Halo, Dishonered, LFD2, Hollow Knight, Dark Souls, and more.</p>
+          <p>DotA, Zelda, DOS2, Halo, Dishonored, L4D2, Hollow Knight, Dark Souls, and more.</p>
         </aside>
 
         <!-- ---------- LAUNCHER ---------- -->
         <main class="card launcher">
           <p class="eyebrow">Play / Watch</p>
 
-          <div class="viewport" id="viewport"><!-- injected --></div>
+          <div class="viewport" id="viewport" tabindex="-1"><!-- injected --></div>
 
-          <div class="nowplaying">
+          <div class="nowplaying" aria-live="polite">
             <div>
               <h3 id="np-title">
                 <span id="np-name"></span>
@@ -573,7 +592,7 @@
           id: "card-battler",
           name: "Card-Based Strategy Game",
           type: "watch",
-          src: "https://www.youtube.com/embed/lk1gdjNjQ88",
+          src: "https://www.youtube-nocookie.com/embed/lk1gdjNjQ88",
           subtitle: "Unity · Roguelike Deckbuilder · Video",
           desc:
             "A Slay-the-Spire–style deckbuilder: clear waves of enemies while building your deck through turn-based battles.",
@@ -588,14 +607,14 @@
           id: "name-recall",
           name: "Name Recall Challenge",
           type: "watch",
-          src: "https://www.youtube.com/embed/_eDWl9PTm7k",
+          src: "https://www.youtube-nocookie.com/embed/_eDWl9PTm7k",
           subtitle: "Client Project · Unity · Video",
           desc:
             "A memory game matching faces to names and names to faces, built as a professional project for NTL Group's NeuroCoach program.",
           bullets: [
             "Delivered as a paid, client-facing project for the NeuroCoach program",
-            "Designed to build and work peoples brains",
-			"Custom UI buttons for intuitive game flow",            
+            "Designed to train and exercise people's memory",
+            "Custom UI buttons for intuitive game flow",
             "Scalable difficulty and customizable options",
             "AI-generated art for the character portraits",
           ],
@@ -605,7 +624,7 @@
           id: "farm-game",
           name: "Farm Game",
           type: "watch",
-          src: "https://www.youtube.com/embed/UWodgMyIYIs",
+          src: "https://www.youtube-nocookie.com/embed/UWodgMyIYIs",
           subtitle: "Unity · Farm Sim · Video",
           desc:
             "A Stardew-style farm sim template and my first real Unity project.",
@@ -621,7 +640,7 @@
           id: "tic-tac-toe",
           name: "Unwinnable Tic-Tac-Toe",
           type: "watch",
-          src: "https://www.youtube.com/embed/2hGbSUb_NqI",
+          src: "https://www.youtube-nocookie.com/embed/2hGbSUb_NqI",
           subtitle: "Web · AI-Assisted · Video",
           desc: "A small, unbeatable tic-tac-toe game",
           bullets: [
@@ -638,7 +657,7 @@
           desc:
             "A merge game - combine matching items to create higher tiers.",
           bullets: [
-            "Just a merge mechanic - not a full game",
+            "Prototype of the core merge mechanic, not a full game yet",
           ],
           repo: "https://github.com/Uncrustable125/Merge-Game",
         },
@@ -656,22 +675,67 @@
       const npRepo = document.getElementById("np-repo");
       const selector = document.getElementById("selector");
 
+      const isTouch = window.matchMedia("(hover: none)").matches;
+
+      // Build the iframe only when we actually want it loaded.
+      function mountFrame(g) {
+        const frame = document.createElement("iframe");
+        frame.src = g.src;
+        frame.loading = "lazy";
+        frame.allow =
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen";
+        frame.allowFullscreen = true;
+        frame.title = g.name;
+        viewport.innerHTML = "";
+        viewport.appendChild(frame);
+        viewport.focus();
+      }
+
+      function showPlaceholder(bigText, noteText, launchFor) {
+        viewport.innerHTML = "";
+        const wrap = document.createElement("div");
+        wrap.className = "placeholder";
+
+        const big = document.createElement("span");
+        big.className = "big";
+        big.textContent = bigText;
+        wrap.appendChild(big);
+
+        if (noteText) {
+          const note = document.createElement("span");
+          note.className = "note";
+          note.textContent = noteText;
+          wrap.appendChild(note);
+        }
+
+        if (launchFor) {
+          const btn = document.createElement("button");
+          btn.className = "btn";
+          btn.textContent = "▶  Launch";
+          btn.addEventListener("click", () => mountFrame(launchFor));
+          wrap.appendChild(btn);
+        }
+
+        viewport.appendChild(wrap);
+      }
+
       function loadGame(id) {
         const g = games.find((x) => x.id === id);
         if (!g) return;
 
         if (g.type === "wip" || !g.src) {
-          viewport.innerHTML =
-            '<div class="placeholder"><span class="big">Coming soon</span><span>This project is still in development.</span></div>';
+          showPlaceholder("Coming soon", "This project is still in development.");
+        } else if (g.type === "play") {
+          // Don't auto-download a multi-MB Unity build on page load.
+          showPlaceholder(
+            g.name,
+            isTouch
+              ? "Unity WebGL build - best on a desktop browser. Mobile support is limited."
+              : "Unity WebGL build - click to load.",
+            g
+          );
         } else {
-          const frame = document.createElement("iframe");
-          frame.src = g.src;
-          frame.allow =
-            "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; fullscreen";
-          frame.allowFullscreen = true;
-          frame.title = g.name;
-          viewport.innerHTML = "";
-          viewport.appendChild(frame);
+          mountFrame(g);
         }
 
         npName.textContent = g.name;
@@ -681,12 +745,14 @@
         npDesc.textContent = g.desc;
         npDirections.textContent = g.directions || "";
         npDirections.style.display = g.directions ? "block" : "none";
-        npBullets.innerHTML = (g.bullets || [])
-          .map((b) => "<li></li>")
-          .join("");
-        (g.bullets || []).forEach((b, i) => {
-          npBullets.children[i].textContent = b;
+
+        npBullets.innerHTML = "";
+        (g.bullets || []).forEach((b) => {
+          const li = document.createElement("li");
+          li.textContent = b;
+          npBullets.appendChild(li);
         });
+
         npRepo.href = g.repo;
 
         selector.querySelectorAll(".game-btn").forEach((b) => {
@@ -699,12 +765,16 @@
         b.className = "game-btn " + g.type;
         b.dataset.id = g.id;
         b.setAttribute("aria-current", i === 0 ? "true" : "false");
-        b.innerHTML =
-          '<span class="gt">' +
-          g.name +
-          '</span><span class="dot">' +
-          badgeText[g.type] +
-          "</span>";
+
+        const gt = document.createElement("span");
+        gt.className = "gt";
+        gt.textContent = g.name;
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.textContent = badgeText[g.type];
+        b.appendChild(gt);
+        b.appendChild(dot);
+
         b.addEventListener("click", () => loadGame(g.id));
         selector.appendChild(b);
       });
