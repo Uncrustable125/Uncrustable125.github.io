@@ -299,12 +299,17 @@
       }
 
       .nowplaying {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+        display: grid;
+        /* text column | button column. minmax(0,1fr) lets the text shrink
+           instead of forcing the button out of the row. */
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
         gap: 18px;
         margin: 18px 2px 4px;
-        flex-wrap: wrap;
+      }
+      #np-repo {
+        justify-self: end;
+        align-self: start;
       }
       .nowplaying h3 {
         font-family: var(--display);
@@ -460,6 +465,12 @@
         .sidebar {
           position: static;
         }
+        .nowplaying {
+          grid-template-columns: 1fr;
+        }
+        #np-repo {
+          justify-self: start;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -586,7 +597,7 @@
           repo: "https://github.com/Uncrustable125/Tower-Defense-Game",
         },
         {
-          id: "deckbuilder",
+          id: "card-battler",
           name: "Roguelike Deckbuilder",
           type: "watch",
           src: "https://www.youtube-nocookie.com/embed/lk1gdjNjQ88",
@@ -598,7 +609,7 @@
             "Roguelike deckbuilding",
             "Custom art and UI",
           ],
-          repo: "https://github.com/Uncrustable125/Roguelike-Deckbuilder",
+          repo: "https://github.com/Uncrustable125/CardBattler",
         },
         {
           id: "name-recall",
