@@ -88,7 +88,7 @@
       .shell {
         max-width: 1560px;
         margin: 0 auto;
-        padding: 28px 24px 48px;
+        padding: 28px 24px 0;
       }
 
       /* ---------- TOP BAND (intro) ---------- */
@@ -276,6 +276,8 @@
       .viewport {
         position: relative;
         width: 100%;
+        max-width: 92%; /* nudge the preview down a touch; lower = smaller */
+        margin: 0 auto;
         aspect-ratio: 16 / 9;
         border-radius: 14px;
         overflow: hidden;
@@ -464,7 +466,8 @@
         text-align: center;
         font-size: 0.85rem;
         color: var(--muted);
-        margin-top: 36px;
+        margin-top: 16px;
+        padding-bottom: 14px;
       }
 
       .btn:focus-visible,
