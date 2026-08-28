@@ -36,8 +36,8 @@
     <style>
       :root {
         --void: #0b0d14;
---panel: rgba(26, 32, 46, 0.80);
---panel-2: rgba(38, 45, 63, 0.75);
+        --panel: rgba(26, 32, 46, 0.80);
+        --panel-2: rgba(38, 45, 63, 0.75);
         --edge: rgba(96, 165, 250, 0.22);
         --edge-strong: rgba(96, 165, 250, 0.55);
         --accent: #3b82f6;
@@ -86,7 +86,7 @@
       }
 
       .shell {
-        max-width: 1400px;
+        max-width: 1560px;
         margin: 0 auto;
         padding: 28px 24px 48px;
       }
@@ -186,7 +186,7 @@
       /* ---------- LAYOUT: sidebar + launcher ---------- */
       .layout {
         display: grid;
-        grid-template-columns: 340px 1fr;
+        grid-template-columns: 310px 1fr;
         gap: 22px;
         margin-top: 22px;
         align-items: start;
@@ -255,6 +255,22 @@
       /* ---------- LAUNCHER (main) ---------- */
       .launcher {
         padding: 22px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 190px;
+        grid-template-areas:
+          "head head"
+          "stage list";
+        column-gap: 20px;
+      }
+      .launcher > .eyebrow {
+        grid-area: head;
+      }
+      .stage {
+        grid-area: stage;
+        min-width: 0;
+      }
+      .launcher > .selector {
+        grid-area: list;
       }
 
       .viewport {
@@ -375,9 +391,10 @@
 
       .selector {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 12px;
-        margin-top: 22px;
+        grid-template-columns: 1fr;
+        align-content: start;
+        gap: 10px;
+        margin-top: 0;
       }
       .game-btn {
         position: relative;
@@ -471,6 +488,18 @@
         #np-repo {
           justify-self: start;
         }
+        .launcher {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "head"
+            "stage"
+            "list";
+        }
+        .selector {
+          grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+          gap: 12px;
+          margin-top: 22px;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -548,22 +577,24 @@
         <main class="card launcher">
           <p class="eyebrow">Play / Watch</p>
 
-          <div class="viewport" id="viewport"><!-- injected --></div>
+          <div class="stage">
+            <div class="viewport" id="viewport"><!-- injected --></div>
 
-          <div class="nowplaying" aria-live="polite">
-            <div>
-              <h3 id="np-title">
-                <span id="np-name"></span>
-                <span class="np-badge" id="np-badge"></span>
-              </h3>
-              <p class="np-sub" id="np-sub"></p>
-              <p id="np-desc"></p>
-              <p id="np-directions"></p>
-              <ul id="np-bullets"></ul>
+            <div class="nowplaying" aria-live="polite">
+              <div>
+                <h3 id="np-title">
+                  <span id="np-name"></span>
+                  <span class="np-badge" id="np-badge"></span>
+                </h3>
+                <p class="np-sub" id="np-sub"></p>
+                <p id="np-desc"></p>
+                <p id="np-directions"></p>
+                <ul id="np-bullets"></ul>
+              </div>
+              <a class="btn ghost" id="np-repo" target="_blank" rel="noreferrer"
+                >View on GitHub</a
+              >
             </div>
-            <a class="btn ghost" id="np-repo" target="_blank" rel="noreferrer"
-              >View on GitHub</a
-            >
           </div>
 
           <div class="selector" id="selector"><!-- injected --></div>
@@ -655,19 +686,6 @@
             "AI opponent that plays perfectly and never loses - either wins or ties",
           ],
           repo: "https://github.com/Uncrustable125/Tic-Tac-Toe",
-        },
-        {
-          id: "merge-game",
-          name: "Merge Game",
-          type: "wip",
-          src: null,
-          subtitle: "Unity · Merge Game",
-          desc:
-            "A merge game - combine matching items to create higher tiers.",
-          bullets: [
-            "Prototype of the core merge mechanic",
-          ],
-          repo: "https://github.com/Uncrustable125/Merge-Mechanic",
         },
       ];
 
